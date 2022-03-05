@@ -10,6 +10,8 @@ import Combine
 
 public protocol CharacterListViewModelType {
 
+    var dataSource: [CharacterListModel] { get }
+    var dataSourcePublished: Published<[CharacterListModel]> { get }
     var dataSourcePublisher: Published<[CharacterListModel]>.Publisher { get }
     func fetchCharacters()
 }
@@ -68,20 +70,3 @@ public final class CharacterListViewModel: CharacterListViewModelType {
             .store(in: &cancellables)
     }
 }
-
-public struct CharacterListModel: Hashable {
-    let identifier: Int
-    let name: String
-    let image: CharacterImageModel
-}
-
-public struct CharacterImageModel: Hashable {
-    private(set) var url: URL?
-    private(set) var ext: String?
-
-    init(url: String, ext: String) {
-        self.url = URL(string: url)
-        self.ext = ext
-    }
-}
-

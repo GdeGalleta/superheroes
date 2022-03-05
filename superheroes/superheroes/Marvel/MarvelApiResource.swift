@@ -33,17 +33,23 @@ public final class MarvelApiResource<T: Decodable>: ApiResource<T> {
         let queryParameters = query?.dictionary ?? [:]
         return MarvelApiResource<MarvelCharactersDto>(endpoint: .characters, queryParameters: queryParameters)
     }
+
+    public class func character(characterName: String) -> MarvelApiResource<MarvelCharactersDto> {
+        var query = CharactersQuery()
+        query.name = characterName
+        return characters(query: query)
+    }
 }
 
 public struct CharactersQuery: Encodable {
-    let name: String? = nil /// Return only characters matching the specified full character name (e.g. Spider-Man).
-    let nameStartsWith: String? = nil /// Return characters with names that begin with the specified string (e.g. Sp).
-    let modifiedSince: Date? = nil /// Return only characters which have been modified since the specified date.
-    let comics: Int? = nil /// Return only characters which appear in the specified comics (accepts a comma-separated list of ids).
-    let series: Int? = nil /// Return only characters which appear the specified series (accepts a comma-separated list of ids).
-    let events: Int? = nil /// Return only characters which appear in the specified events (accepts a comma-separated list of ids).
-    let stories: Int? = nil /// Return only characters which appear the specified stories (accepts a comma-separated list of ids).
-    let orderBy: String? = nil /// Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
-    let limit: Int? = nil /// Limit the result set to the specified number of resources.
-    let offset: Int? = nil /// Skip the specified number of resources in the result set.
+    var name: String? = nil /// Return only characters matching the specified full character name (e.g. Spider-Man).
+    var nameStartsWith: String? = nil /// Return characters with names that begin with the specified string (e.g. Sp).
+    var modifiedSince: Date? = nil /// Return only characters which have been modified since the specified date.
+    var comics: Int? = nil /// Return only characters which appear in the specified comics (accepts a comma-separated list of ids).
+    var series: Int? = nil /// Return only characters which appear the specified series (accepts a comma-separated list of ids).
+    var events: Int? = nil /// Return only characters which appear in the specified events (accepts a comma-separated list of ids).
+    var stories: Int? = nil /// Return only characters which appear the specified stories (accepts a comma-separated list of ids).
+    var orderBy: String? = nil /// Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
+    var limit: Int? = nil /// Limit the result set to the specified number of resources.
+    var offset: Int? = nil /// Skip the specified number of resources in the result set.
 }

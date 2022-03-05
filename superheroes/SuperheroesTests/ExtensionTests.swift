@@ -39,3 +39,12 @@ class ExtensionEncodable: XCTestCase {
         XCTAssertEqual(bar as? Int, encodable.bar)
     }
 }
+
+class ExtensionStringTests: XCTestCase {
+
+    func test_stringToLocalized() {
+        let expected = "Close"
+        let string = "kClose".localized
+        XCTAssertEqual(string, expected)
+    }
+}

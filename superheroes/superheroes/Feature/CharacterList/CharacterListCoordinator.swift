@@ -8,7 +8,7 @@
 import UIKit
 
 public protocol CharacterListCoordinatorType: AnyObject {
-    func coordinateToCharacterDetail(identifier: Int)
+    func coordinateToCharacterDetail(characterName: String)
 }
 
 public final class CharacterListCoordinator: FlowCoordinator, CharacterListCoordinatorType {
@@ -24,10 +24,10 @@ public final class CharacterListCoordinator: FlowCoordinator, CharacterListCoord
     }
 
     // MARK: - Flow Methods
-    public func coordinateToCharacterDetail(identifier: Int) {
+    public func coordinateToCharacterDetail(characterName: String) {
         let detailCoordinator = CharacterDetailCoordinator(
             navigationController: navigationController,
-            identifier: identifier)
+            characterName: characterName)
         coordinate(to: detailCoordinator, animated: true)
     }
 }

@@ -13,15 +13,15 @@ public protocol CharacterDetailCoordinatorType: AnyObject {
 
 public final class CharacterDetailCoordinator: FlowCoordinator, CharacterDetailCoordinatorType {
     let navigationController: UINavigationController
-    let identifier: Int
+    let characterName: String
 
-    init(navigationController: UINavigationController, identifier: Int) {
+    init(navigationController: UINavigationController, characterName: String) {
         self.navigationController = navigationController
-        self.identifier = identifier
+        self.characterName = characterName
     }
 
     public func start(animated: Bool = true) {
-        let viewController = CharacterDetailViewController(identifier: identifier, coordinator: self)
+        let viewController = CharacterDetailViewController(characterName: characterName, coordinator: self)
         navigationController.present(viewController, animated: animated, completion: nil)
     }
 

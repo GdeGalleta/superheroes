@@ -9,7 +9,7 @@ import XCTest
 
 class CoordinatorTests: XCTestCase {
 
-    private let identifier = Int.zero
+    private let characterName = "SpiderMan"
     private var window: UIWindow?
     private var navigationController: UINavigationControllerMock?
     private var startCoordinator: FlowCoordinator?
@@ -21,7 +21,7 @@ class CoordinatorTests: XCTestCase {
         navigationController = UINavigationControllerMock()
         startCoordinator = MainCoordinator(window: window!)
         characterListCoordinator = CharacterListCoordinator(navigationController: navigationController!)
-        characterDetailCoordinator = CharacterDetailCoordinator(navigationController: navigationController!, identifier: identifier)
+        characterDetailCoordinator = CharacterDetailCoordinator(navigationController: navigationController!, characterName: characterName)
 
         window!.rootViewController = navigationController
         window!.makeKeyAndVisible()
@@ -59,9 +59,9 @@ class CoordinatorTests: XCTestCase {
             XCTFail("Wrong view controller")
         }
 
-        let expectedViewController2 = CharacterDetailViewController(identifier: identifier)
+        let expectedViewController2 = CharacterDetailViewController(characterName: characterName)
 
-        characterListCoordinator!.coordinateToCharacterDetail(identifier: identifier)
+        characterListCoordinator!.coordinateToCharacterDetail(characterName: characterName)
 
         if let viewController = navigationController!.presentedViewController {
             XCTAssert(type(of: viewController) == type(of: expectedViewController2))
@@ -71,7 +71,7 @@ class CoordinatorTests: XCTestCase {
     }
 
     func test_startCharacterDetail() {
-        let expectedViewController = CharacterDetailViewController(identifier: identifier)
+        let expectedViewController = CharacterDetailViewController(characterName: characterName)
 
         characterDetailCoordinator!.start(animated: false)
 
