@@ -13,9 +13,16 @@
 		EAE963FC27D363AB0067FD7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE963FA27D363AB0067FD7A /* Main.storyboard */; };
 		EAE963FE27D363AD0067FD7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE963FD27D363AD0067FD7A /* Assets.xcassets */; };
 		EAE9640127D363AD0067FD7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE963FF27D363AD0067FD7A /* LaunchScreen.storyboard */; };
-		EAE9640C27D363AD0067FD7A /* SuperheroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9640B27D363AD0067FD7A /* SuperheroesTests.swift */; };
 		EAE9641627D363AD0067FD7A /* SuperheroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9641527D363AD0067FD7A /* SuperheroesUITests.swift */; };
-		EAE9641827D363AD0067FD7A /* SuperheroesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9641727D363AD0067FD7A /* SuperheroesUITestsLaunchTests.swift */; };
+		EAE9642627D365730067FD7A /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9642527D365730067FD7A /* ApiProvider.swift */; };
+		EAE9642727D365730067FD7A /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9642527D365730067FD7A /* ApiProvider.swift */; };
+		EAE9642927D365950067FD7A /* ApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9642827D365950067FD7A /* ApiResource.swift */; };
+		EAE9642A27D365950067FD7A /* ApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9642827D365950067FD7A /* ApiResource.swift */; };
+		EAE9642C27D365B20067FD7A /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9642B27D365B20067FD7A /* ApiError.swift */; };
+		EAE9642D27D365B20067FD7A /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9642B27D365B20067FD7A /* ApiError.swift */; };
+		EAE9643027D36B2F0067FD7A /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9642F27D36B2F0067FD7A /* URLProtocolMock.swift */; };
+		EAE9643227D36B530067FD7A /* ApiProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9643127D36B530067FD7A /* ApiProviderTests.swift */; };
+		EAE9643427D36BD40067FD7A /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = EAE9643327D36BD40067FD7A /* sample.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +52,14 @@
 		EAE9640027D363AD0067FD7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAE9640227D363AD0067FD7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE9640727D363AD0067FD7A /* SuperheroesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperheroesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAE9640B27D363AD0067FD7A /* SuperheroesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperheroesTests.swift; sourceTree = "<group>"; };
 		EAE9641127D363AD0067FD7A /* SuperheroesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperheroesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE9641527D363AD0067FD7A /* SuperheroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperheroesUITests.swift; sourceTree = "<group>"; };
-		EAE9641727D363AD0067FD7A /* SuperheroesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperheroesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EAE9642527D365730067FD7A /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
+		EAE9642827D365950067FD7A /* ApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResource.swift; sourceTree = "<group>"; };
+		EAE9642B27D365B20067FD7A /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		EAE9642F27D36B2F0067FD7A /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		EAE9643127D36B530067FD7A /* ApiProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProviderTests.swift; sourceTree = "<group>"; };
+		EAE9643327D36BD40067FD7A /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +125,8 @@
 		EAE9640A27D363AD0067FD7A /* SuperheroesTests */ = {
 			isa = PBXGroup;
 			children = (
-				EAE9640B27D363AD0067FD7A /* SuperheroesTests.swift */,
+				EAE9642E27D36B160067FD7A /* Mock */,
+				EAE9643127D36B530067FD7A /* ApiProviderTests.swift */,
 			);
 			path = SuperheroesTests;
 			sourceTree = "<group>";
@@ -123,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				EAE9641527D363AD0067FD7A /* SuperheroesUITests.swift */,
-				EAE9641727D363AD0067FD7A /* SuperheroesUITestsLaunchTests.swift */,
 			);
 			path = SuperheroesUITests;
 			sourceTree = "<group>";
@@ -131,8 +142,28 @@
 		EAE9642427D364390067FD7A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EAE9642527D365730067FD7A /* ApiProvider.swift */,
+				EAE9642827D365950067FD7A /* ApiResource.swift */,
+				EAE9642B27D365B20067FD7A /* ApiError.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		EAE9642E27D36B160067FD7A /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				EAE9643527D36BDF0067FD7A /* Data */,
+				EAE9642F27D36B2F0067FD7A /* URLProtocolMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		EAE9643527D36BDF0067FD7A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EAE9643327D36BD40067FD7A /* sample.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE9643427D36BD40067FD7A /* sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +299,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE963F927D363AB0067FD7A /* ViewController.swift in Sources */,
+				EAE9642627D365730067FD7A /* ApiProvider.swift in Sources */,
 				EAE963F527D363AB0067FD7A /* AppDelegate.swift in Sources */,
+				EAE9642927D365950067FD7A /* ApiResource.swift in Sources */,
 				EAE963F727D363AB0067FD7A /* SceneDelegate.swift in Sources */,
+				EAE9642C27D365B20067FD7A /* ApiError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +311,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAE9640C27D363AD0067FD7A /* SuperheroesTests.swift in Sources */,
+				EAE9642D27D365B20067FD7A /* ApiError.swift in Sources */,
+				EAE9642727D365730067FD7A /* ApiProvider.swift in Sources */,
+				EAE9642A27D365950067FD7A /* ApiResource.swift in Sources */,
+				EAE9643027D36B2F0067FD7A /* URLProtocolMock.swift in Sources */,
+				EAE9643227D36B530067FD7A /* ApiProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAE9641827D363AD0067FD7A /* SuperheroesUITestsLaunchTests.swift in Sources */,
 				EAE9641627D363AD0067FD7A /* SuperheroesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -430,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -465,6 +503,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -493,6 +532,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
@@ -505,7 +545,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K9A73FX66A;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimitrysopov.SuperheroesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +553,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Superheroes.app/Superheroes";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -525,7 +566,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K9A73FX66A;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimitrysopov.SuperheroesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,6 +574,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Superheroes.app/Superheroes";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
@@ -551,6 +593,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Superheroes;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -569,6 +612,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Superheroes;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
