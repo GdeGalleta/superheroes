@@ -23,8 +23,8 @@
 		EAE9643427D36BD40067FD7A /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = EAE9643327D36BD40067FD7A /* sample.json */; };
 		EAE9643927D36EF50067FD7A /* MarvelAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9643827D36EF50067FD7A /* MarvelAuthHelper.swift */; };
 		EAE9643A27D36EF50067FD7A /* MarvelAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9643827D36EF50067FD7A /* MarvelAuthHelper.swift */; };
-		EAE9643D27D36F280067FD7A /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9643C27D36F280067FD7A /* String+md5.swift */; };
-		EAE9643E27D36F280067FD7A /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9643C27D36F280067FD7A /* String+md5.swift */; };
+		EAE9643D27D36F280067FD7A /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9643C27D36F280067FD7A /* String+MD5.swift */; };
+		EAE9643E27D36F280067FD7A /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9643C27D36F280067FD7A /* String+MD5.swift */; };
 		EAE9644027D36F630067FD7A /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9643F27D36F630067FD7A /* ExtensionTests.swift */; };
 		EAE9644227D36FEE0067FD7A /* MarvelApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9644127D36FEE0067FD7A /* MarvelApiResource.swift */; };
 		EAE9644327D36FEE0067FD7A /* MarvelApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9644127D36FEE0067FD7A /* MarvelApiResource.swift */; };
@@ -111,7 +111,7 @@
 		EAE9643127D36B530067FD7A /* ApiProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProviderTests.swift; sourceTree = "<group>"; };
 		EAE9643327D36BD40067FD7A /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		EAE9643827D36EF50067FD7A /* MarvelAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAuthHelper.swift; sourceTree = "<group>"; };
-		EAE9643C27D36F280067FD7A /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
+		EAE9643C27D36F280067FD7A /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		EAE9643F27D36F630067FD7A /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		EAE9644127D36FEE0067FD7A /* MarvelApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApiResource.swift; sourceTree = "<group>"; };
 		EAE9644427D370790067FD7A /* Encodable+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Json.swift"; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		EAE9643B27D36F110067FD7A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				EAE9643C27D36F280067FD7A /* String+md5.swift */,
+				EAE9643C27D36F280067FD7A /* String+MD5.swift */,
 				EAE9644427D370790067FD7A /* Encodable+Json.swift */,
 				EAE9644727D3713D0067FD7A /* Dictionary+Merge.swift */,
 				EAE9648427D3A2A00067FD7A /* String+Localized.swift */,
@@ -523,7 +523,7 @@
 				EAE9645D27D389FC0067FD7A /* StartCoordinator.swift in Sources */,
 				EAE964B227D3F5BF0067FD7A /* ComicListCell.swift in Sources */,
 				EAE963F527D363AB0067FD7A /* AppDelegate.swift in Sources */,
-				EAE9643D27D36F280067FD7A /* String+md5.swift in Sources */,
+				EAE9643D27D36F280067FD7A /* String+MD5.swift in Sources */,
 				EAE9642927D365950067FD7A /* ApiResource.swift in Sources */,
 				EAE9646627D38A620067FD7A /* CharacterListViewController.swift in Sources */,
 				EAE9643927D36EF50067FD7A /* MarvelAuthHelper.swift in Sources */,
@@ -562,7 +562,7 @@
 				EAE9647527D38E330067FD7A /* CoordinatorTests.swift in Sources */,
 				EAE9647327D38CF90067FD7A /* CharacterDetailViewModel.swift in Sources */,
 				EAE9646D27D38ADB0067FD7A /* CharacterDetailCoordinator.swift in Sources */,
-				EAE9643E27D36F280067FD7A /* String+md5.swift in Sources */,
+				EAE9643E27D36F280067FD7A /* String+MD5.swift in Sources */,
 				EAE9642D27D365B20067FD7A /* ApiError.swift in Sources */,
 				EAE9646427D38A2C0067FD7A /* FlowCoordinator.swift in Sources */,
 				EAE9642727D365730067FD7A /* ApiProvider.swift in Sources */,
