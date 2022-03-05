@@ -36,14 +36,14 @@ public final class MarvelApiResource<T: Decodable>: ApiResource<T> {
 }
 
 public struct CharactersQuery: Encodable {
-    let name: String? /// Return only characters matching the specified full character name (e.g. Spider-Man).
-    let nameStartsWith: String? /// Return characters with names that begin with the specified string (e.g. Sp).
-    let modifiedSince: Date? /// Return only characters which have been modified since the specified date.
-    let comics: Int? /// Return only characters which appear in the specified comics (accepts a comma-separated list of ids).
-    let series: Int? /// Return only characters which appear the specified series (accepts a comma-separated list of ids).
-    let events: Int? /// Return only characters which appear in the specified events (accepts a comma-separated list of ids).
-    let stories: Int? /// Return only characters which appear the specified stories (accepts a comma-separated list of ids).
-    let orderBy: String? /// Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
-    let limit: Int? /// Limit the result set to the specified number of resources.
-    let offset: Int? /// Skip the specified number of resources in the result set.
+    let name: String? = nil /// Return only characters matching the specified full character name (e.g. Spider-Man).
+    let nameStartsWith: String? = nil /// Return characters with names that begin with the specified string (e.g. Sp).
+    let modifiedSince: Date? = nil /// Return only characters which have been modified since the specified date.
+    let comics: Int? = nil /// Return only characters which appear in the specified comics (accepts a comma-separated list of ids).
+    let series: Int? = nil /// Return only characters which appear the specified series (accepts a comma-separated list of ids).
+    let events: Int? = nil /// Return only characters which appear in the specified events (accepts a comma-separated list of ids).
+    let stories: Int? = nil /// Return only characters which appear the specified stories (accepts a comma-separated list of ids).
+    let orderBy: String? = nil /// Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
+    let limit: Int? = nil /// Limit the result set to the specified number of resources.
+    let offset: Int? = nil /// Skip the specified number of resources in the result set.
 }

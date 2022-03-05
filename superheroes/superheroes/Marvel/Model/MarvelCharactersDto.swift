@@ -23,7 +23,7 @@ public struct MarvelDataClassDto: Codable {
 
 // MARK: - Result
 public struct MarvelResultDto: Codable {
-    let id: Int?
+    let identifier: Int?
     let name, resultDescription: String?
     let modified: String?
     let thumbnail: MarvelThumbnailDto?
@@ -34,8 +34,9 @@ public struct MarvelResultDto: Codable {
     let urls: [MarvelURLElementDto]?
 
     enum CodingKeys: String, CodingKey {
-        case id, name
-        case resultDescription
+        case identifier = "id"
+        case name
+        case resultDescription = "description"
         case modified, thumbnail, resourceURI, comics, series, stories, events, urls
     }
 }
@@ -76,7 +77,7 @@ public struct MarvelThumbnailDto: Codable {
 
     enum CodingKeys: String, CodingKey {
         case path
-        case thumbnailExtension
+        case thumbnailExtension = "extension"
     }
 }
 

@@ -37,6 +37,10 @@
 		EAE9644C27D3752A0067FD7A /* MarvelCharactersDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9644B27D3752A0067FD7A /* MarvelCharactersDto.swift */; };
 		EAE9644D27D3752A0067FD7A /* MarvelCharactersDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9644B27D3752A0067FD7A /* MarvelCharactersDto.swift */; };
 		EAE9644F27D375FA0067FD7A /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = EAE9644E27D375FA0067FD7A /* characters.json */; };
+		EAE9645427D37B950067FD7A /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9645327D37B950067FD7A /* CharacterListViewModel.swift */; };
+		EAE9645527D37B950067FD7A /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9645327D37B950067FD7A /* CharacterListViewModel.swift */; };
+		EAE9645827D381C20067FD7A /* CharacterListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9645727D381C20067FD7A /* CharacterListViewModelTests.swift */; };
+		EAE9645A27D3833E0067FD7A /* TestsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9645927D3833E0067FD7A /* TestsConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,9 @@
 		EAE9644727D3713D0067FD7A /* Dictionary+Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Merge.swift"; sourceTree = "<group>"; };
 		EAE9644B27D3752A0067FD7A /* MarvelCharactersDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersDto.swift; sourceTree = "<group>"; };
 		EAE9644E27D375FA0067FD7A /* characters.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
+		EAE9645327D37B950067FD7A /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		EAE9645727D381C20067FD7A /* CharacterListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModelTests.swift; sourceTree = "<group>"; };
+		EAE9645927D3833E0067FD7A /* TestsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,9 +139,10 @@
 		EAE963F327D363AB0067FD7A /* Superheroes */ = {
 			isa = PBXGroup;
 			children = (
-				EAE9643B27D36F110067FD7A /* Extension */,
+				EAE9645027D37B510067FD7A /* Feature */,
 				EAE9643727D36ED50067FD7A /* Marvel */,
 				EAE9642427D364390067FD7A /* Core */,
+				EAE9643B27D36F110067FD7A /* Extension */,
 				EAE963F427D363AB0067FD7A /* AppDelegate.swift */,
 				EAE963F627D363AB0067FD7A /* SceneDelegate.swift */,
 				EAE963F827D363AB0067FD7A /* ViewController.swift */,
@@ -150,8 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				EAE9642E27D36B160067FD7A /* Mock */,
-				EAE9643127D36B530067FD7A /* ApiProviderTests.swift */,
+				EAE9645927D3833E0067FD7A /* TestsConstants.swift */,
 				EAE9643F27D36F630067FD7A /* ExtensionTests.swift */,
+				EAE9643127D36B530067FD7A /* ApiProviderTests.swift */,
+				EAE9645727D381C20067FD7A /* CharacterListViewModelTests.swift */,
 			);
 			path = SuperheroesTests;
 			sourceTree = "<group>";
@@ -224,6 +234,38 @@
 			isa = PBXGroup;
 			children = (
 				EAE9644B27D3752A0067FD7A /* MarvelCharactersDto.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EAE9645027D37B510067FD7A /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				EAE9645127D37B660067FD7A /* CharacterList */,
+				EAE9645227D37B760067FD7A /* CharacterDetail */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		EAE9645127D37B660067FD7A /* CharacterList */ = {
+			isa = PBXGroup;
+			children = (
+				EAE9645627D37BC90067FD7A /* Model */,
+				EAE9645327D37B950067FD7A /* CharacterListViewModel.swift */,
+			);
+			path = CharacterList;
+			sourceTree = "<group>";
+		};
+		EAE9645227D37B760067FD7A /* CharacterDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CharacterDetail;
+			sourceTree = "<group>";
+		};
+		EAE9645627D37BC90067FD7A /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE9645427D37B950067FD7A /* CharacterListViewModel.swift in Sources */,
 				EAE9644827D3713D0067FD7A /* Dictionary+Merge.swift in Sources */,
 				EAE963F927D363AB0067FD7A /* ViewController.swift in Sources */,
 				EAE9644527D370790067FD7A /* Encodable+Json.swift in Sources */,
@@ -380,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE9645527D37B950067FD7A /* CharacterListViewModel.swift in Sources */,
 				EAE9644927D3713D0067FD7A /* Dictionary+Merge.swift in Sources */,
 				EAE9643A27D36EF50067FD7A /* MarvelAuthHelper.swift in Sources */,
 				EAE9644627D370790067FD7A /* Encodable+Json.swift in Sources */,
@@ -387,8 +431,10 @@
 				EAE9642D27D365B20067FD7A /* ApiError.swift in Sources */,
 				EAE9642727D365730067FD7A /* ApiProvider.swift in Sources */,
 				EAE9642A27D365950067FD7A /* ApiResource.swift in Sources */,
+				EAE9645A27D3833E0067FD7A /* TestsConstants.swift in Sources */,
 				EAE9643027D36B2F0067FD7A /* URLProtocolMock.swift in Sources */,
 				EAE9643227D36B530067FD7A /* ApiProviderTests.swift in Sources */,
+				EAE9645827D381C20067FD7A /* CharacterListViewModelTests.swift in Sources */,
 				EAE9644327D36FEE0067FD7A /* MarvelApiResource.swift in Sources */,
 				EAE9644D27D3752A0067FD7A /* MarvelCharactersDto.swift in Sources */,
 				EAE9644027D36F630067FD7A /* ExtensionTests.swift in Sources */,

@@ -19,24 +19,6 @@ class ApiProviderTests: XCTestCase {
         return URLSession(configuration: configuration)
     }()
 
-    private lazy var sampleJsonData: Data = {
-        let fileUrl = Bundle(for: type(of: self)).url(forResource: "sample", withExtension: "json")
-        guard let url = fileUrl, let data = try? Data(contentsOf: url) else {
-            XCTFail("Error creating data from file")
-            return Data()
-        }
-        return data
-    }()
-
-    private lazy var charactersJsonData: Data = {
-        let fileUrl = Bundle(for: type(of: self)).url(forResource: "characters", withExtension: "json")
-        guard let url = fileUrl, let data = try? Data(contentsOf: url) else {
-            XCTFail("Error creating data from file")
-            return Data()
-        }
-        return data
-    }()
-
     override func setUpWithError() throws {
         cancellables = []
         apiProvider = ApiProvider(session: session)
@@ -53,12 +35,12 @@ class ApiProviderTests: XCTestCase {
 
         let resource = ApiResource<Data>(baseURL: "test.com/", pathURL: "sample")
 
-        URLProtocolMock.requestHandler = { [weak self] request in
+        URLProtocolMock.requestHandler = { request in
             let response = HTTPURLResponse(url: (resource.request?.url)!,
                                            statusCode: 200,
                                            httpVersion: nil,
                                            headerFields: nil)!
-            return (response, self!.sampleJsonData)
+            return (response, TestsConstants.sampleJsonData)
         }
 
         apiProvider!.fetchData(resource: resource)
@@ -86,12 +68,12 @@ class ApiProviderTests: XCTestCase {
 
         let resource = MarvelApiResource<MarvelCharactersDto>.characters()
 
-        URLProtocolMock.requestHandler = { [weak self] request in
+        URLProtocolMock.requestHandler = { request in
             let response = HTTPURLResponse(url: (resource.request?.url)!,
                                            statusCode: 200,
                                            httpVersion: nil,
                                            headerFields: nil)!
-            return (response, self!.charactersJsonData)
+            return (response, TestsConstants.charactersJsonData)
         }
         
         apiProvider!.fetch(resource: resource)
@@ -103,7 +85,7 @@ class ApiProviderTests: XCTestCase {
                         break
                 }
                 expectation0.fulfill()
-            } receiveValue: { response in
+            } receiveValue: { (response: MarvelCharactersDto) in
                 if let results = response.data?.results, !results.isEmpty {
                     expectation1.fulfill()
                 }
