@@ -99,6 +99,7 @@
 		EAE963F327D363AB0067FD7A /* Superheroes */ = {
 			isa = PBXGroup;
 			children = (
+				EAE9642427D364390067FD7A /* Core */,
 				EAE963F427D363AB0067FD7A /* AppDelegate.swift */,
 				EAE963F627D363AB0067FD7A /* SceneDelegate.swift */,
 				EAE963F827D363AB0067FD7A /* ViewController.swift */,
@@ -125,6 +126,13 @@
 				EAE9641727D363AD0067FD7A /* SuperheroesUITestsLaunchTests.swift */,
 			);
 			path = SuperheroesUITests;
+			sourceTree = "<group>";
+		};
+		EAE9642427D364390067FD7A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
