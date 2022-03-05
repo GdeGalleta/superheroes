@@ -28,6 +28,15 @@ class ApiProviderTests: XCTestCase {
         return data
     }()
 
+    private lazy var charactersJsonData: Data = {
+        let fileUrl = Bundle(for: type(of: self)).url(forResource: "characters", withExtension: "json")
+        guard let url = fileUrl, let data = try? Data(contentsOf: url) else {
+            XCTFail("Error creating data from file")
+            return Data()
+        }
+        return data
+    }()
+
     override func setUpWithError() throws {
         cancellables = []
         apiProvider = ApiProvider(session: session)
@@ -42,7 +51,7 @@ class ApiProviderTests: XCTestCase {
         let expectation0 = expectation(description: "call executed")
         let expectation1 = expectation(description: "expected values received")
 
-        let resource = ApiResource<Data>(baseURL: "test.com/", pathURL: "test")
+        let resource = ApiResource<Data>(baseURL: "test.com/", pathURL: "sample")
 
         URLProtocolMock.requestHandler = { [weak self] request in
             let response = HTTPURLResponse(url: (resource.request?.url)!,
@@ -51,12 +60,51 @@ class ApiProviderTests: XCTestCase {
                                            headerFields: nil)!
             return (response, self!.sampleJsonData)
         }
-        
-        apiProvider!.fetch(resource: resource)
+
+        apiProvider!.fetchData(resource: resource)
             .sink { completion in
+                switch completion {
+                    case .failure(let error):
+                        print("Error: \(error.localizedDescription)")
+                    case.finished:
+                        break
+                }
                 expectation0.fulfill()
             } receiveValue: { response in
                 if !response.isEmpty {
+                    expectation1.fulfill()
+                }
+            }
+            .store(in: &cancellables)
+
+        wait(for: [expectation0, expectation1], timeout: 5)
+    }
+
+    func test_fetchCharacters() {
+        let expectation0 = expectation(description: "call executed")
+        let expectation1 = expectation(description: "expected values received")
+
+        let resource = MarvelApiResource<MarvelCharactersDto>.characters()
+
+        URLProtocolMock.requestHandler = { [weak self] request in
+            let response = HTTPURLResponse(url: (resource.request?.url)!,
+                                           statusCode: 200,
+                                           httpVersion: nil,
+                                           headerFields: nil)!
+            return (response, self!.charactersJsonData)
+        }
+        
+        apiProvider!.fetch(resource: resource)
+            .sink { completion in
+                switch completion {
+                    case .failure(let error):
+                        print("Error: \(error.localizedDescription)")
+                    case.finished:
+                        break
+                }
+                expectation0.fulfill()
+            } receiveValue: { response in
+                if let results = response.data?.results, !results.isEmpty {
                     expectation1.fulfill()
                 }
             }

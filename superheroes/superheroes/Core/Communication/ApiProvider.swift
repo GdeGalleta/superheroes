@@ -9,7 +9,8 @@ import Foundation
 import Combine
 
 public protocol ApiProviderType {
-    func fetch(resource: ApiResource<Data>) -> AnyPublisher<Data, ApiError>
+    func fetchData(resource: ApiResource<Data>) -> AnyPublisher<Data, ApiError>
+    func fetch<T: Decodable>(resource: ApiResource<T>) -> AnyPublisher<T, ApiError>
 }
 
 public final class ApiProvider: ApiProviderType {
@@ -26,13 +27,20 @@ public final class ApiProvider: ApiProviderType {
     }
 
     // MARK: - Fetching by Resource
-
-    public func fetch(resource: ApiResource<Data>) -> AnyPublisher<Data, ApiError> {
+    public func fetchData(resource: ApiResource<Data>) -> AnyPublisher<Data, ApiError> {
         guard let resourceRequest = resource.request else {
             return Fail(error: ApiError.invalidURL).eraseToAnyPublisher()
         }
 
         return fetchData(request: resourceRequest)
+    }
+
+    public func fetch<T: Decodable>(resource: ApiResource<T>) -> AnyPublisher<T, ApiError> {
+        guard let resourceRequest = resource.request else {
+            return Fail(error: ApiError.invalidURL).eraseToAnyPublisher()
+        }
+
+        return fetch(request: resourceRequest)
     }
 
     // MARK: - Fetching by URLRequest
