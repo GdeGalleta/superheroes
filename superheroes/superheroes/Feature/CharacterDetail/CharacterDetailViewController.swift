@@ -17,6 +17,22 @@ public final class CharacterDetailViewController: UIViewController {
     private let viewModel: CharacterDetailViewModelType
     private let coordinator: CharacterDetailCoordinatorType?
 
+    private enum Section: CaseIterable { case comics }
+    private typealias DataSource = UITableViewDiffableDataSource<Section, CharacterDetailComicModel>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, CharacterDetailComicModel>
+    private var dataSource: DataSource!
+
+    private lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.delegate = self
+        table.separatorStyle = .none
+        table.backgroundColor = .clear
+        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
+        table.register(ComicListCell.self, forCellReuseIdentifier: ComicListCell.identifier)
+        return table
+    }()
+
     private let buttonDismiss: UIButton = {
         let button = PrimaryButton()
         button.titleColor = .red
@@ -63,6 +79,7 @@ public final class CharacterDetailViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        setupDataSource()
         setupBinding()
         fetchData()
     }
@@ -80,6 +97,7 @@ extension CharacterDetailViewController {
         view.addSubview(image)
         view.addSubview(buttonDismiss)
         view.addSubview(labelTitle)
+        view.addSubview(tableView)
 
         let safeAreaLayout = view.safeAreaLayoutGuide
 
@@ -102,6 +120,13 @@ extension CharacterDetailViewController {
             labelTitle.leadingAnchor.constraint(equalTo: safeAreaLayout.leadingAnchor),
             labelTitle.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor)
         ])
+
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: image.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayout.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayout.bottomAnchor)
+        ])
     }
 
     private func setupBinding() {
@@ -115,11 +140,43 @@ extension CharacterDetailViewController {
                                       ext: model.image.ext,
                                       aspect: .standard,
                                       size: .medium)
+                self.setupSnapshot()
             }
             .store(in: &cancellables)
     }
 
     private func fetchData() {
         viewModel.fetchCharacter(characterName: characterName)
+    }
+}
+
+extension CharacterDetailViewController {
+
+    private func setupDataSource() {
+        dataSource = DataSource(
+            tableView: tableView,
+            cellProvider: { tableView, indexPath, model -> UITableViewCell? in
+                let cell = tableView.dequeueReusableCell(withIdentifier: ComicListCell.identifier, for: indexPath) as? ComicListCell
+                cell?.setup(with: model)
+                return cell
+            })
+    }
+
+    private func setupSnapshot() {
+        guard let comics = viewModel.dataSource?.comics else {
+            return
+        }
+
+        var snapshot = Snapshot()
+        snapshot.appendSections([.comics])
+        snapshot.appendItems(comics)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+}
+
+extension CharacterDetailViewController: UITableViewDelegate {
+
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

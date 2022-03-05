@@ -20,5 +20,6 @@ public struct CharacterDetailImageModel: Hashable {
 }
 
 public struct CharacterDetailComicModel: Hashable {
+    private let id = UUID()
     let title: String
 }
