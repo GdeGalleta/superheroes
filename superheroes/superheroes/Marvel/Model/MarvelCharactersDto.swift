@@ -28,16 +28,24 @@ public struct MarvelResultDto: Codable {
     let modified: String?
     let thumbnail: MarvelThumbnailDto?
     let resourceURI: String?
-    let comics, series: MarvelComicsDto?
-    let stories: MarvelStoriesDto?
-    let events: MarvelComicsDto?
-    let urls: [MarvelURLElementDto]?
+    let comics: MarvelComicsDto?
+//    let series: MarvelSeriesDto?
+//    let stories: MarvelStoriesDto?
+//    let events: MarvelEventsDto?
+//    let urls: [MarvelURLElementDto]?
 
     enum CodingKeys: String, CodingKey {
         case identifier = "id"
         case name
         case resultDescription = "description"
-        case modified, thumbnail, resourceURI, comics, series, stories, events, urls
+        case modified
+        case thumbnail
+        case resourceURI
+        case comics
+//        case series
+//        case stories
+//        case events
+//        case urls
     }
 }
 
@@ -45,8 +53,45 @@ public struct MarvelResultDto: Codable {
 public struct MarvelComicsDto: Codable {
     let available: Int?
     let collectionURI: String?
-    let items: [MarvelComicsItemDto]?
+    let comicItems: [MarvelComicsItemDto]?
     let returned: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case available
+        case collectionURI
+        case comicItems = "items"
+        case returned
+    }
+}
+
+// MARK: - Series
+public struct MarvelSeriesDto: Codable {
+    let available: Int?
+    let collectionURI: String?
+    let serieItems: [MarvelSeriesItemDto]?
+    let returned: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case available
+        case collectionURI
+        case serieItems = "items"
+        case returned
+    }
+}
+
+// MARK: - Events
+public struct MarvelEventsDto: Codable {
+    let available: Int?
+    let collectionURI: String?
+    let eventItems: [MarvelEventsItemDto]?
+    let returned: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case available
+        case collectionURI
+        case eventItems = "items"
+        case returned
+    }
 }
 
 // MARK: - ComicsItem
@@ -55,12 +100,31 @@ public struct MarvelComicsItemDto: Codable {
     let name: String?
 }
 
+// MARK: - SerieItem
+public struct MarvelSeriesItemDto: Codable {
+    let resourceURI: String?
+    let name: String?
+}
+
+// MARK: - EventsItem
+public struct MarvelEventsItemDto: Codable {
+    let resourceURI: String?
+    let name: String?
+}
+
 // MARK: - Stories
 public struct MarvelStoriesDto: Codable {
     let available: Int?
     let collectionURI: String?
-    let items: [StoriesItemDto]?
+    let storyItems: [StoriesItemDto]?
     let returned: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case available
+        case collectionURI
+        case storyItems = "items"
+        case returned
+    }
 }
 
 // MARK: - StoriesItem

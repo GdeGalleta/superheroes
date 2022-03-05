@@ -60,8 +60,6 @@
 		EAE9647827D3970C0067FD7A /* CharacterListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9647627D3970C0067FD7A /* CharacterListModel.swift */; };
 		EAE9647B27D3978D0067FD7A /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9647A27D3978D0067FD7A /* CharacterListCell.swift */; };
 		EAE9647C27D3978D0067FD7A /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9647A27D3978D0067FD7A /* CharacterListCell.swift */; };
-		EAE9647E27D397D00067FD7A /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9647D27D397D00067FD7A /* CharacterListCellViewModel.swift */; };
-		EAE9647F27D397D00067FD7A /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9647D27D397D00067FD7A /* CharacterListCellViewModel.swift */; };
 		EAE9648227D3A22A0067FD7A /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9648127D3A22A0067FD7A /* PrimaryButton.swift */; };
 		EAE9648327D3A22A0067FD7A /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9648127D3A22A0067FD7A /* PrimaryButton.swift */; };
 		EAE9648527D3A2A00067FD7A /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9648427D3A2A00067FD7A /* String+Localized.swift */; };
@@ -71,6 +69,10 @@
 		EAE9648F27D3A97B0067FD7A /* CharacterDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9648E27D3A97B0067FD7A /* CharacterDetailViewModelTests.swift */; };
 		EAE964A127D3CCC40067FD7A /* MarvelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE964A027D3CCC40067FD7A /* MarvelConstants.swift */; };
 		EAE964A227D3CCC40067FD7A /* MarvelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE964A027D3CCC40067FD7A /* MarvelConstants.swift */; };
+		EAE964AA27D3DB090067FD7A /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE964A927D3DB090067FD7A /* UIImageView+URL.swift */; };
+		EAE964AB27D3DB090067FD7A /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE964A927D3DB090067FD7A /* UIImageView+URL.swift */; };
+		EAE964AE27D3DFDB0067FD7A /* CharacterDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE964AD27D3DFDB0067FD7A /* CharacterDetailModel.swift */; };
+		EAE964AF27D3DFDB0067FD7A /* CharacterDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE964AD27D3DFDB0067FD7A /* CharacterDetailModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,12 +130,13 @@
 		EAE9647427D38E330067FD7A /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		EAE9647627D3970C0067FD7A /* CharacterListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListModel.swift; sourceTree = "<group>"; };
 		EAE9647A27D3978D0067FD7A /* CharacterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCell.swift; sourceTree = "<group>"; };
-		EAE9647D27D397D00067FD7A /* CharacterListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModel.swift; sourceTree = "<group>"; };
 		EAE9648127D3A22A0067FD7A /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		EAE9648427D3A2A00067FD7A /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		EAE9648C27D3A33D0067FD7A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EAE9648E27D3A97B0067FD7A /* CharacterDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTests.swift; sourceTree = "<group>"; };
 		EAE964A027D3CCC40067FD7A /* MarvelConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelConstants.swift; sourceTree = "<group>"; };
+		EAE964A927D3DB090067FD7A /* UIImageView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
+		EAE964AD27D3DFDB0067FD7A /* CharacterDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +226,6 @@
 		EAE9642427D364390067FD7A /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				EAE9649627D3C4460067FD7A /* ImageCache */,
 				EAE9648027D3A1FB0067FD7A /* Component */,
 				EAE9645B27D389E00067FD7A /* Coordinator */,
 				EAE9643627D36EBC0067FD7A /* Communication */,
@@ -277,6 +279,7 @@
 				EAE9644427D370790067FD7A /* Encodable+Json.swift */,
 				EAE9644727D3713D0067FD7A /* Dictionary+Merge.swift */,
 				EAE9648427D3A2A00067FD7A /* String+Localized.swift */,
+				EAE964A927D3DB090067FD7A /* UIImageView+URL.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 		EAE9645227D37B760067FD7A /* CharacterDetail */ = {
 			isa = PBXGroup;
 			children = (
+				EAE964AC27D3DFC60067FD7A /* Model */,
 				EAE9646B27D38ADB0067FD7A /* CharacterDetailCoordinator.swift */,
 				EAE9646E27D38B1E0067FD7A /* CharacterDetailViewController.swift */,
 				EAE9647127D38CF90067FD7A /* CharacterDetailViewModel.swift */,
@@ -342,7 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				EAE9647A27D3978D0067FD7A /* CharacterListCell.swift */,
-				EAE9647D27D397D00067FD7A /* CharacterListCellViewModel.swift */,
 			);
 			path = CharacterListCell;
 			sourceTree = "<group>";
@@ -355,11 +358,12 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		EAE9649627D3C4460067FD7A /* ImageCache */ = {
+		EAE964AC27D3DFC60067FD7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EAE964AD27D3DFDB0067FD7A /* CharacterDetailModel.swift */,
 			);
-			path = ImageCache;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,8 +501,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE964A127D3CCC40067FD7A /* MarvelConstants.swift in Sources */,
+				EAE964AE27D3DFDB0067FD7A /* CharacterDetailModel.swift in Sources */,
 				EAE9647227D38CF90067FD7A /* CharacterDetailViewModel.swift in Sources */,
-				EAE9647E27D397D00067FD7A /* CharacterListCellViewModel.swift in Sources */,
 				EAE9645427D37B950067FD7A /* CharacterListViewModel.swift in Sources */,
 				EAE9644827D3713D0067FD7A /* Dictionary+Merge.swift in Sources */,
 				EAE9644527D370790067FD7A /* Encodable+Json.swift in Sources */,
@@ -521,6 +525,7 @@
 				EAE9646327D38A2C0067FD7A /* FlowCoordinator.swift in Sources */,
 				EAE9644C27D3752A0067FD7A /* MarvelCharactersDto.swift in Sources */,
 				EAE9646027D38A190067FD7A /* MainCoordinator.swift in Sources */,
+				EAE964AA27D3DB090067FD7A /* UIImageView+URL.swift in Sources */,
 				EAE9642C27D365B20067FD7A /* ApiError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +540,7 @@
 				EAE9647027D38B1E0067FD7A /* CharacterDetailViewController.swift in Sources */,
 				EAE9645527D37B950067FD7A /* CharacterListViewModel.swift in Sources */,
 				EAE9646727D38A620067FD7A /* CharacterListViewController.swift in Sources */,
+				EAE964AF27D3DFDB0067FD7A /* CharacterDetailModel.swift in Sources */,
 				EAE964A227D3CCC40067FD7A /* MarvelConstants.swift in Sources */,
 				EAE9644927D3713D0067FD7A /* Dictionary+Merge.swift in Sources */,
 				EAE9643A27D36EF50067FD7A /* MarvelAuthHelper.swift in Sources */,
@@ -546,8 +552,8 @@
 				EAE9643E27D36F280067FD7A /* String+md5.swift in Sources */,
 				EAE9642D27D365B20067FD7A /* ApiError.swift in Sources */,
 				EAE9646427D38A2C0067FD7A /* FlowCoordinator.swift in Sources */,
-				EAE9647F27D397D00067FD7A /* CharacterListCellViewModel.swift in Sources */,
 				EAE9642727D365730067FD7A /* ApiProvider.swift in Sources */,
+				EAE964AB27D3DB090067FD7A /* UIImageView+URL.swift in Sources */,
 				EAE9642A27D365950067FD7A /* ApiResource.swift in Sources */,
 				EAE9648327D3A22A0067FD7A /* PrimaryButton.swift in Sources */,
 				EAE9645A27D3833E0067FD7A /* TestsConstants.swift in Sources */,

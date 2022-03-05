@@ -39,11 +39,12 @@ class CharacterDetailViewModelTests: XCTestCase {
         }
 
         let characterName = "3-D Man"
-        let expectedImage = CharacterImageModel(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", ext: "jpg")
-        let expectedModel = CharacterListModel(
+        let expectedImage = CharacterDetailImageModel(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", ext: "jpg")
+        let expectedModel = CharacterDetailModel(
             identifier: 1011334,
             name: characterName,
-            image: expectedImage)
+            image: expectedImage,
+            comics: [])
 
         viewModel!.dataSourcePublisher
             .receive(on: RunLoop.main)

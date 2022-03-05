@@ -38,7 +38,7 @@ class CharacterListViewModelTests: XCTestCase {
             return (response, TestsConstants.charactersJsonData)
         }
 
-        let expectedImage = CharacterImageModel(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", ext: "jpg")
+        let expectedImage = CharacterListImageModel(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", ext: "jpg")
         let expectedModel = CharacterListModel(
             identifier: 1011334,
             name: "3-D Man",

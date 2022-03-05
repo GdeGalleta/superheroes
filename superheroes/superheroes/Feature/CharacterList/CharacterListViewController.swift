@@ -90,7 +90,7 @@ extension CharacterListViewController {
             tableView: tableView,
             cellProvider: { tableView, indexPath, model -> UITableViewCell? in
                 let cell = tableView.dequeueReusableCell(withIdentifier: CharacterListCell.identifier, for: indexPath) as? CharacterListCell                
-                cell?.viewModel = CharacterListCellViewModel(character: model)
+                cell?.setup(with: model)
                 return cell
             })
     }

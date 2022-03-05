@@ -30,12 +30,6 @@ public final class CharacterListCell: UITableViewCell {
         return image
     }()
 
-    public var viewModel: CharacterListCellViewModel? {
-        didSet {
-            labelName.text = viewModel?.name
-        }
-    }
-
     public override func layoutSubviews() {
         super.layoutSubviews()
     }
@@ -53,6 +47,14 @@ public final class CharacterListCell: UITableViewCell {
 
 extension CharacterListCell {
 
+    public func setup(with model: CharacterListModel) {
+        labelName.text = model.name
+        imageThumbnail.loadMarvel(path: model.image.path,
+                                  ext: model.image.ext,
+                                  aspect: .standard,
+                                  size: .medium)
+    }
+
     private func setupLayout() {
         backgroundColor = .clear
         selectionStyle = .none
@@ -67,15 +69,17 @@ extension CharacterListCell {
         contentView.addSubview(labelName)
 
         NSLayoutConstraint.activate([
-            imageThumbnail.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            imageThumbnail.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            imageThumbnail.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            imageThumbnail.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            imageThumbnail.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            imageThumbnail.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            imageThumbnail.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageThumbnail.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            imageThumbnail.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageThumbnail.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            labelName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            labelName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            labelName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            labelName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+            labelName.topAnchor.constraint(equalTo: contentView.topAnchor),
+            labelName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            labelName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            labelName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
 }

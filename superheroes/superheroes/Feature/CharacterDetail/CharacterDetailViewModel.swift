@@ -10,9 +10,9 @@ import Combine
 
 public protocol CharacterDetailViewModelType {
 
-    var dataSource: CharacterListModel? { get }
-    var dataSourcePublished: Published<CharacterListModel?> { get }
-    var dataSourcePublisher: Published<CharacterListModel?>.Publisher { get }
+    var dataSource: CharacterDetailModel? { get }
+    var dataSourcePublished: Published<CharacterDetailModel?> { get }
+    var dataSourcePublisher: Published<CharacterDetailModel?>.Publisher { get }
     func fetchCharacter(characterName: String)
 }
 
@@ -22,9 +22,9 @@ public final class CharacterDetailViewModel: CharacterDetailViewModelType {
 
     private let apiProvider: ApiProviderType
 
-    @Published public var dataSource: CharacterListModel?
-    public var dataSourcePublished: Published<CharacterListModel?> { _dataSource }
-    public var dataSourcePublisher: Published<CharacterListModel?>.Publisher { $dataSource }
+    @Published public var dataSource: CharacterDetailModel?
+    public var dataSourcePublished: Published<CharacterDetailModel?> { _dataSource }
+    public var dataSourcePublisher: Published<CharacterDetailModel?>.Publisher { $dataSource }
 
     init(apiProvider: ApiProviderType = ApiProvider()) {
         self.apiProvider = apiProvider
@@ -36,8 +36,8 @@ public final class CharacterDetailViewModel: CharacterDetailViewModelType {
 
         apiProvider
             .fetch(resource: resource)
-            .compactMap({ (response: MarvelCharactersDto) -> [CharacterListModel] in
-                var converted: [CharacterListModel] = []
+            .compactMap({ (response: MarvelCharactersDto) -> [CharacterDetailModel] in
+                var converted: [CharacterDetailModel] = []
                 if let results = response.data?.results {
                     converted+=results.compactMap({
                         if let identifier = $0.identifier,
@@ -45,15 +45,26 @@ public final class CharacterDetailViewModel: CharacterDetailViewModelType {
                            let url = $0.thumbnail?.path,
                            let ext = $0.thumbnail?.thumbnailExtension
                         {
-                            return CharacterListModel(
-                                identifier: identifier,
-                                name: name,
-                                image: CharacterImageModel(path: url, ext: ext))
+                            let image = CharacterDetailImageModel(path: url, ext: ext)
+
+                            var comicItems: [MarvelComicsItemDto] = []
+                            comicItems.append(contentsOf: ($0.comics?.comicItems) ?? [])
+
+                            let comics: [CharacterDetailComicModel]? = $0.comics?.comicItems?.compactMap({ (item: MarvelComicsItemDto) in
+                                if let title = item.name {
+                                    return CharacterDetailComicModel(title: title)
+                                }
+                                return nil
+                            })
+
+                            return CharacterDetailModel(identifier: identifier,
+                                                        name: name,
+                                                        image: image,
+                                                        comics: comics)
                         }
                         return nil
                     })
                 }
-
                 return converted
             })
             .sink { [weak self] completion in

@@ -47,7 +47,7 @@ public final class CharacterListViewModel: CharacterListViewModelType {
                             return CharacterListModel(
                                 identifier: identifier,
                                 name: name,
-                                image: CharacterImageModel(path: path, ext: ext))
+                                image: CharacterListImageModel(path: path, ext: ext))
                         }
                         return nil
                     })

@@ -10,10 +10,10 @@ import Foundation
 public struct CharacterListModel: Hashable {
     let identifier: Int
     let name: String
-    let image: CharacterImageModel
+    let image: CharacterListImageModel
 }
 
-public struct CharacterImageModel: Hashable {
+public struct CharacterListImageModel: Hashable {
     let path: String
     let ext: String
 }

@@ -33,9 +33,15 @@ public final class CharacterDetailViewController: UIViewController {
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont(name: label.font.fontName, size: 15)
-        label.textColor = .white
+        label.font = UIFont(name: label.font.fontName, size: 30)
+        label.textColor = .black
         return label
+    }()
+
+    private let image: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
 
     // MARK: - Initializer
@@ -69,12 +75,21 @@ public final class CharacterDetailViewController: UIViewController {
 
 extension CharacterDetailViewController {
     private func setupLayout() {
-        view.backgroundColor = .cyan
+        view.backgroundColor = .darkGray
 
+        view.addSubview(image)
         view.addSubview(buttonDismiss)
         view.addSubview(labelTitle)
 
         let safeAreaLayout = view.safeAreaLayoutGuide
+
+        NSLayoutConstraint.activate([
+            image.widthAnchor.constraint(equalTo: safeAreaLayout.widthAnchor),
+            image.heightAnchor.constraint(equalTo: safeAreaLayout.widthAnchor),
+            image.topAnchor.constraint(equalTo: safeAreaLayout.topAnchor),
+            image.leadingAnchor.constraint(equalTo: safeAreaLayout.leadingAnchor),
+            image.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor)
+        ])
 
         NSLayoutConstraint.activate([
             buttonDismiss.topAnchor.constraint(equalTo: safeAreaLayout.topAnchor, constant: 10),
@@ -83,9 +98,9 @@ extension CharacterDetailViewController {
         ])
 
         NSLayoutConstraint.activate([
-            labelTitle.topAnchor.constraint(equalTo: buttonDismiss.bottomAnchor, constant: 10),
-            labelTitle.leadingAnchor.constraint(equalTo: safeAreaLayout.leadingAnchor, constant: 10),
-            labelTitle.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor, constant: -10)
+            labelTitle.topAnchor.constraint(equalTo: buttonDismiss.bottomAnchor),
+            labelTitle.leadingAnchor.constraint(equalTo: safeAreaLayout.leadingAnchor),
+            labelTitle.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor)
         ])
     }
 
@@ -94,7 +109,12 @@ extension CharacterDetailViewController {
             .receive(on: RunLoop.main)
             .sink { [weak self] response in
                 guard let self = self else { return }
-                self.labelTitle.text = response?.name
+                guard let model = response else { return }
+                self.labelTitle.text = model.name
+                self.image.loadMarvel(path: model.image.path,
+                                      ext: model.image.ext,
+                                      aspect: .standard,
+                                      size: .medium)
             }
             .store(in: &cancellables)
     }
