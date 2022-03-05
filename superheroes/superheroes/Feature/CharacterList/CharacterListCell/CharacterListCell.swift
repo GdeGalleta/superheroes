@@ -24,6 +24,12 @@ public final class CharacterListCell: UITableViewCell {
         return label
     }()
 
+    private let imageThumbnail: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+
     public var viewModel: CharacterListCellViewModel? {
         didSet {
             labelName.text = viewModel?.name
@@ -57,9 +63,15 @@ extension CharacterListCell {
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
 
+        contentView.addSubview(imageThumbnail)
         contentView.addSubview(labelName)
 
         NSLayoutConstraint.activate([
+            imageThumbnail.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            imageThumbnail.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            imageThumbnail.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            imageThumbnail.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+
             labelName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             labelName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             labelName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),

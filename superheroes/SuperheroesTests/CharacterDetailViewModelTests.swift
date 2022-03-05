@@ -14,15 +14,9 @@ class CharacterDetailViewModelTests: XCTestCase {
     private var apiProvider: ApiProviderType?
     private var viewModel: CharacterDetailViewModelType?
 
-    private lazy var session: URLSession = {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLProtocolMock.self]
-        return URLSession(configuration: configuration)
-    }()
-
     override func setUpWithError() throws {
         cancellables = []
-        apiProvider = ApiProvider(session: session)
+        apiProvider = ApiProvider(session: TestsConstants.session)
         URLProtocol.registerClass(URLProtocolMock.self)
 
         viewModel = CharacterDetailViewModel(apiProvider: apiProvider!)
@@ -45,7 +39,7 @@ class CharacterDetailViewModelTests: XCTestCase {
         }
 
         let characterName = "3-D Man"
-        let expectedImage = CharacterImageModel(url: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", ext: "jpg")
+        let expectedImage = CharacterImageModel(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", ext: "jpg")
         let expectedModel = CharacterListModel(
             identifier: 1011334,
             name: characterName,

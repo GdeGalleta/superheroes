@@ -41,13 +41,13 @@ public final class CharacterListViewModel: CharacterListViewModelType {
                     converted+=results.compactMap({
                         if let identifier = $0.identifier,
                            let name = $0.name,
-                           let url = $0.thumbnail?.path,
+                           let path = $0.thumbnail?.path,
                            let ext = $0.thumbnail?.thumbnailExtension
                         {
                             return CharacterListModel(
                                 identifier: identifier,
                                 name: name,
-                                image: CharacterImageModel(url: url, ext: ext))
+                                image: CharacterImageModel(path: path, ext: ext))
                         }
                         return nil
                     })

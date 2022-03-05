@@ -69,6 +69,8 @@
 		EAE9648A27D3A33D0067FD7A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAE9648D27D3A33D0067FD7A /* Localizable.strings */; };
 		EAE9648B27D3A33D0067FD7A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAE9648D27D3A33D0067FD7A /* Localizable.strings */; };
 		EAE9648F27D3A97B0067FD7A /* CharacterDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9648E27D3A97B0067FD7A /* CharacterDetailViewModelTests.swift */; };
+		EAE964A127D3CCC40067FD7A /* MarvelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE964A027D3CCC40067FD7A /* MarvelConstants.swift */; };
+		EAE964A227D3CCC40067FD7A /* MarvelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE964A027D3CCC40067FD7A /* MarvelConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,7 @@
 		EAE9648427D3A2A00067FD7A /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		EAE9648C27D3A33D0067FD7A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EAE9648E27D3A97B0067FD7A /* CharacterDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTests.swift; sourceTree = "<group>"; };
+		EAE964A027D3CCC40067FD7A /* MarvelConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,7 @@
 		EAE9642427D364390067FD7A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EAE9649627D3C4460067FD7A /* ImageCache */,
 				EAE9648027D3A1FB0067FD7A /* Component */,
 				EAE9645B27D389E00067FD7A /* Coordinator */,
 				EAE9643627D36EBC0067FD7A /* Communication */,
@@ -261,6 +265,7 @@
 				EAE9644A27D375170067FD7A /* Model */,
 				EAE9643827D36EF50067FD7A /* MarvelAuthHelper.swift */,
 				EAE9644127D36FEE0067FD7A /* MarvelApiResource.swift */,
+				EAE964A027D3CCC40067FD7A /* MarvelConstants.swift */,
 			);
 			path = Marvel;
 			sourceTree = "<group>";
@@ -348,6 +353,13 @@
 				EAE9648127D3A22A0067FD7A /* PrimaryButton.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		EAE9649627D3C4460067FD7A /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ImageCache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE964A127D3CCC40067FD7A /* MarvelConstants.swift in Sources */,
 				EAE9647227D38CF90067FD7A /* CharacterDetailViewModel.swift in Sources */,
 				EAE9647E27D397D00067FD7A /* CharacterListCellViewModel.swift in Sources */,
 				EAE9645427D37B950067FD7A /* CharacterListViewModel.swift in Sources */,
@@ -522,6 +535,7 @@
 				EAE9647027D38B1E0067FD7A /* CharacterDetailViewController.swift in Sources */,
 				EAE9645527D37B950067FD7A /* CharacterListViewModel.swift in Sources */,
 				EAE9646727D38A620067FD7A /* CharacterListViewController.swift in Sources */,
+				EAE964A227D3CCC40067FD7A /* MarvelConstants.swift in Sources */,
 				EAE9644927D3713D0067FD7A /* Dictionary+Merge.swift in Sources */,
 				EAE9643A27D36EF50067FD7A /* MarvelAuthHelper.swift in Sources */,
 				EAE9645E27D389FC0067FD7A /* StartCoordinator.swift in Sources */,

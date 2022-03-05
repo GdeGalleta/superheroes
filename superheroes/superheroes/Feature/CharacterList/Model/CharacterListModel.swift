@@ -14,11 +14,6 @@ public struct CharacterListModel: Hashable {
 }
 
 public struct CharacterImageModel: Hashable {
-    private(set) var url: URL?
-    private(set) var ext: String?
-
-    init(url: String, ext: String) {
-        self.url = URL(string: url)
-        self.ext = ext
-    }
+    let path: String
+    let ext: String
 }

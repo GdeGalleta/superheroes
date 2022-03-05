@@ -13,15 +13,9 @@ class ApiProviderTests: XCTestCase {
     private var cancellables: Set<AnyCancellable>!
     private var apiProvider: ApiProviderType?
 
-    private lazy var session: URLSession = {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLProtocolMock.self]
-        return URLSession(configuration: configuration)
-    }()
-
     override func setUpWithError() throws {
         cancellables = []
-        apiProvider = ApiProvider(session: session)
+        apiProvider = ApiProvider(session: TestsConstants.session)
         URLProtocol.registerClass(URLProtocolMock.self)
     }
 

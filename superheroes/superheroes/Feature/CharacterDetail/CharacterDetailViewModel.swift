@@ -48,7 +48,7 @@ public final class CharacterDetailViewModel: CharacterDetailViewModelType {
                             return CharacterListModel(
                                 identifier: identifier,
                                 name: name,
-                                image: CharacterImageModel(url: url, ext: ext))
+                                image: CharacterImageModel(path: url, ext: ext))
                         }
                         return nil
                     })
