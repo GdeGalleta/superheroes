@@ -34,4 +34,13 @@ public struct TestsConstants {
         }
         return data
     }()
+
+    static let marvelImageData: Data = {
+        let fileUrl = testsBundle.url(forResource: "marvel", withExtension: "jpeg")
+        guard let url = fileUrl, let data = try? Data(contentsOf: url) else {
+            XCTFail("Error creating data from file")
+            return Data()
+        }
+        return data
+    }()
 }

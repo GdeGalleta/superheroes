@@ -40,11 +40,12 @@ class CharacterDetailViewModelTests: XCTestCase {
 
         let characterName = "3-D Man"
         let expectedImage = CharacterDetailImageModel(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", ext: "jpg")
+        let comic = CharacterDetailComicModel(title: "FREE COMIC BOOK DAY 2013 1 (2013) #1")
         let expectedModel = CharacterDetailModel(
             identifier: 1011334,
             name: characterName,
             image: expectedImage,
-            comics: [])
+            comics: [comic])
 
         viewModel!.dataSourcePublisher
             .receive(on: RunLoop.main)
@@ -54,7 +55,7 @@ class CharacterDetailViewModelTests: XCTestCase {
                     XCTAssertEqual(model.name, expectedModel.name)
                     XCTAssertEqual(model.image.path, expectedModel.image.path)
                     XCTAssertEqual(model.image.ext, expectedModel.image.ext)
-                    XCTAssertEqual(model.comics, expectedModel.comics)
+                    XCTAssertEqual(model.comics!.first!.title, expectedModel.comics!.first!.title)
                     
                     expectation0.fulfill()
                 }

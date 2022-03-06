@@ -70,8 +70,8 @@ public final class CharacterDetailViewController: MarvelViewController {
         return label
     }()
 
-    private let image: UIImageView = {
-        let image = UIImageView()
+    private let image: MarvelImageView = {
+        let image = MarvelImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.image = UIImage(named: "character_placeholder")

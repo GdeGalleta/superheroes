@@ -25,7 +25,10 @@
                     "available": 12,
                     "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/comics",
                     "items": [
-                        
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/47176",
+                            "name": "FREE COMIC BOOK DAY 2013 1 (2013) #1"
+                        }
                     ],
                     "returned": 12
                 },

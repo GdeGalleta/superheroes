@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import UIKit.UIColor
 
 class ExtensionString: XCTestCase {
 
@@ -46,5 +47,17 @@ class ExtensionStringTests: XCTestCase {
         let expected = "Close"
         let string = "kClose".localized
         XCTAssertEqual(string, expected)
+    }
+}
+
+class ExtensionUIColorTests: XCTestCase {
+
+    func test_randomColor() {
+        var color = UIColor.random
+        XCTAssertNotNil(color)
+        color = UIColor.randomDark
+        XCTAssertNotNil(color)
+        color = UIColor.randomLight
+        XCTAssertNotNil(color)
     }
 }

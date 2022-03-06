@@ -31,8 +31,8 @@ public final class CharacterListCell: UITableViewCell {
         return label
     }()
 
-    private let imageThumbnail: UIImageView = {
-        let image = UIImageView()
+    private let imageThumbnail: MarvelImageView = {
+        let image = MarvelImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.image = UIImage(named: "character_placeholder")
