@@ -34,10 +34,17 @@ public final class CharacterDetailViewController: MarvelViewController {
         return table
     }()
 
+    private let viewButtonDismiss: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = K.Color.background
+        return view
+    }()
+
     private let buttonDismiss: UIButton = {
         let button = PrimaryButton()
         button.titleColor = .red
-        button.borderColor = .red
+        button.borderColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("kClose".localized, for: .normal)
         button.addTarget(self, action: #selector(buttonDismissTapped), for: .touchUpInside)
@@ -167,21 +174,30 @@ extension CharacterDetailViewController {
         view.addSubview(image)
         view.addSubview(viewFavorite)
         viewFavorite.addSubview(stackFavorite)
-        view.addSubview(buttonDismiss)
+        view.addSubview(viewButtonDismiss)
+        viewButtonDismiss.addSubview(buttonDismiss)
         view.addSubview(viewTitle)
         viewTitle.addSubview(labelTitle)
         view.addSubview(tableView)
         view.addSubview(labelComics)
 
+        viewButtonDismiss.layer.cornerRadius = 10
         viewTitle.layer.cornerRadius = 10
         viewFavorite.layer.cornerRadius = 25
 
         let safeAreaLayout = view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
-            buttonDismiss.topAnchor.constraint(equalTo: safeAreaLayout.topAnchor, constant: 10),
-            buttonDismiss.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor, constant: -10),
-            buttonDismiss.widthAnchor.constraint(equalToConstant: 60)
+            viewButtonDismiss.topAnchor.constraint(equalTo: safeAreaLayout.topAnchor, constant: 10),
+            viewButtonDismiss.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor, constant: -10),
+        ])
+
+        NSLayoutConstraint.activate([
+            buttonDismiss.widthAnchor.constraint(equalToConstant: 60),
+            buttonDismiss.topAnchor.constraint(equalTo: viewButtonDismiss.topAnchor),
+            buttonDismiss.bottomAnchor.constraint(equalTo: viewButtonDismiss.bottomAnchor),
+            buttonDismiss.leadingAnchor.constraint(equalTo: viewButtonDismiss.leadingAnchor),
+            buttonDismiss.trailingAnchor.constraint(equalTo: viewButtonDismiss.trailingAnchor)
         ])
 
         NSLayoutConstraint.activate([
