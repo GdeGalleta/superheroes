@@ -49,8 +49,7 @@ public final class CharacterListViewModel: CharacterListViewModelType {
                         if let identifier = $0.identifier,
                            let name = $0.name,
                            let path = $0.thumbnail?.path,
-                           let ext = $0.thumbnail?.thumbnailExtension
-                        {
+                           let ext = $0.thumbnail?.thumbnailExtension {
                             return CharacterListModel(
                                 identifier: identifier,
                                 name: name,

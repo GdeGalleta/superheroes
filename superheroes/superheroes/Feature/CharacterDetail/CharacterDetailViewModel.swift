@@ -43,8 +43,7 @@ public final class CharacterDetailViewModel: CharacterDetailViewModelType {
                         if let identifier = $0.identifier,
                            let name = $0.name,
                            let url = $0.thumbnail?.path,
-                           let ext = $0.thumbnail?.thumbnailExtension
-                        {
+                           let ext = $0.thumbnail?.thumbnailExtension {
                             let image = CharacterDetailImageModel(path: url, ext: ext)
 
                             var comicItems: [MarvelComicsItemDto] = []

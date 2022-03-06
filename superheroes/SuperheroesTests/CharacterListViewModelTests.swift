@@ -56,7 +56,6 @@ class CharacterListViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-
         viewModel!.fetchCharacters()
 
         wait(for: [expectation0], timeout: 5)

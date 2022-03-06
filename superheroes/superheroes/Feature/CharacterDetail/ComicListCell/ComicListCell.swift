@@ -12,15 +12,22 @@ public final class ComicListCell: UITableViewCell {
     // MARK: - Properties
     public static let identifier = "ComicListCell"
 
+    private let viewContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .darkGray
+        return view
+    }()
+
     private let labelTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
-        label.numberOfLines = 1
-        label.font = UIFont(name: label.font.fontName, size: 20)
-        // label.textColor = .white
+        label.numberOfLines = 0
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.textColor = .black
         return label
     }()
 
@@ -49,19 +56,26 @@ extension ComicListCell {
         backgroundColor = .clear
         selectionStyle = .none
 
-        contentView.backgroundColor = .white
-        contentView.layer.borderWidth = 0.1
-        contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
+        contentView.addSubview(viewContainer)
+        viewContainer.addSubview(labelTitle)
 
-        contentView.addSubview(labelTitle)
+        let rColor = UIColor.randomLight
+        viewContainer.backgroundColor = rColor
+        viewContainer.layer.borderWidth = 1
+        viewContainer.layer.borderColor = rColor.cgColor
+        viewContainer.layer.cornerRadius = 10
+        viewContainer.layer.masksToBounds = true
 
         NSLayoutConstraint.activate([
-            labelTitle.topAnchor.constraint(equalTo: contentView.topAnchor),
-            labelTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            labelTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            labelTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            viewContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2.5),
+            viewContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2.5),
+            viewContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2.5),
+            viewContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2.5),
+
+            labelTitle.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 10),
+            labelTitle.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: -10),
+            labelTitle.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 10),
+            labelTitle.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -10)
         ])
     }
 }

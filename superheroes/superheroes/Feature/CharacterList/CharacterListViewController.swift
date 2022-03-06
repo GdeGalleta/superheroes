@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-public final class CharacterListViewController: UIViewController {
+public final class CharacterListViewController: MarvelViewController {
 
     // MARK: - Properties
     private var cancellables = Set<AnyCancellable>()
@@ -27,7 +27,7 @@ public final class CharacterListViewController: UIViewController {
         table.delegate = self
         table.separatorStyle = .none
         table.backgroundColor = .clear
-        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
+        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         table.register(CharacterListCell.self, forCellReuseIdentifier: CharacterListCell.identifier)
         return table
     }()
@@ -56,13 +56,17 @@ public final class CharacterListViewController: UIViewController {
 
 extension CharacterListViewController {
     private func setupLayout() {
+        title = "kMarvelHeroes".localized
+
+        view.backgroundColor = .black
+
         view.addSubview(tableView)
 
         let safeAreaLayout = view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayout.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayout.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayout.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor)
         ])
@@ -89,7 +93,7 @@ extension CharacterListViewController {
         dataSource = DataSource(
             tableView: tableView,
             cellProvider: { tableView, indexPath, model -> UITableViewCell? in
-                let cell = tableView.dequeueReusableCell(withIdentifier: CharacterListCell.identifier, for: indexPath) as? CharacterListCell                
+                let cell = tableView.dequeueReusableCell(withIdentifier: CharacterListCell.identifier, for: indexPath) as? CharacterListCell
                 cell?.setup(with: model)
                 return cell
             })

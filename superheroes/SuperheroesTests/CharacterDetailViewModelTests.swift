@@ -55,7 +55,6 @@ class CharacterDetailViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-
         viewModel!.fetchCharacter(characterName: characterName)
 
         wait(for: [expectation0], timeout: 5)

@@ -12,21 +12,30 @@ public final class CharacterListCell: UITableViewCell {
     // MARK: - Properties
     public static let identifier = "CharacterListCell"
 
+    private let viewContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .darkGray
+        return view
+    }()
+
     private let labelName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
-        label.numberOfLines = 1
-        label.font = UIFont(name: label.font.fontName, size: 20)
-        // label.textColor = .white
+        label.numberOfLines = 0
+        label.font = UIFont.boldSystemFont(ofSize: 25.0)
+        label.textColor = .black
         return label
     }()
 
     private let imageThumbnail: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        image.image = UIImage(named: "character_placeholder")
         return image
     }()
 
@@ -52,34 +61,40 @@ extension CharacterListCell {
         imageThumbnail.loadMarvel(path: model.image.path,
                                   ext: model.image.ext,
                                   aspect: .standard,
-                                  size: .medium)
+                                  size: .xlarge)
     }
 
     private func setupLayout() {
         backgroundColor = .clear
         selectionStyle = .none
 
-        contentView.backgroundColor = .white
-        contentView.layer.borderWidth = 0.1
-        contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
+        contentView.addSubview(viewContainer)
+        viewContainer.addSubview(imageThumbnail)
+        viewContainer.addSubview(labelName)
 
-        contentView.addSubview(imageThumbnail)
-        contentView.addSubview(labelName)
+        let rColor = UIColor.randomLight
+        viewContainer.backgroundColor = rColor
+        viewContainer.layer.borderWidth = 2
+        viewContainer.layer.borderColor = rColor.cgColor
+        viewContainer.layer.cornerRadius = 10
+        viewContainer.layer.masksToBounds = true
 
         NSLayoutConstraint.activate([
-            imageThumbnail.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            imageThumbnail.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
-            imageThumbnail.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageThumbnail.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageThumbnail.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageThumbnail.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            viewContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2.5),
+            viewContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2.5),
+            viewContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2.5),
+            viewContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2.5),
 
-            labelName.topAnchor.constraint(equalTo: contentView.topAnchor),
-            labelName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            labelName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            labelName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            imageThumbnail.widthAnchor.constraint(equalToConstant: 100),
+            imageThumbnail.heightAnchor.constraint(equalToConstant: 100),
+            imageThumbnail.topAnchor.constraint(equalTo: viewContainer.topAnchor),
+            imageThumbnail.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor),
+            imageThumbnail.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor),
+
+            labelName.leadingAnchor.constraint(equalTo: imageThumbnail.trailingAnchor, constant: 10),
+            labelName.topAnchor.constraint(equalTo: viewContainer.topAnchor),
+            labelName.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor),
+            labelName.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -10)
         ])
     }
 }

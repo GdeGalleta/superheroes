@@ -69,7 +69,7 @@ class ApiProviderTests: XCTestCase {
                                            headerFields: nil)!
             return (response, TestsConstants.charactersJsonData)
         }
-        
+
         apiProvider!.fetch(resource: resource)
             .sink { completion in
                 switch completion {

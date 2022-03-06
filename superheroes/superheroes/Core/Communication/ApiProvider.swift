@@ -44,7 +44,7 @@ public final class ApiProvider: ApiProviderType {
     }
 
     // MARK: - Fetching by URLRequest
-    
+
     private func fetchData(request: URLRequest) -> AnyPublisher<Data, ApiError> {
         return session.dataTaskPublisher(for: request)
             .tryMap { data, response in

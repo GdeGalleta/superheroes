@@ -11,7 +11,6 @@ import UIKit
 
     @IBInspectable var borderColor: UIColor = .black
     @IBInspectable var titleColor: UIColor = .black
-    @IBInspectable var fillColor: UIColor = UIColor.clear
 
     private var borderWidth = 4.0
     private var cornerRadius = 10.0
@@ -25,7 +24,7 @@ import UIKit
     private func setupLayout() {
         border.lineWidth = borderWidth
         border.frame = bounds
-        border.fillColor = fillColor.cgColor
+        border.fillColor = UIColor.clear.cgColor
         border.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
         border.lineDashPattern = nil
         border.strokeColor = borderColor.cgColor
@@ -37,4 +36,3 @@ import UIKit
         layer.masksToBounds = true
     }
 }
-
