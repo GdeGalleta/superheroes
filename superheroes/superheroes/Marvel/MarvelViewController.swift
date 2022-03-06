@@ -18,10 +18,10 @@ public class MarvelViewController: UIViewController {
 
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .black
-        appearance.titleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 20.0), .foregroundColor: UIColor.white]
+        appearance.backgroundColor = K.Color.background
+        appearance.titleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 20.0), .foregroundColor: K.Color.textLight]
 
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = K.Color.textLight
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }

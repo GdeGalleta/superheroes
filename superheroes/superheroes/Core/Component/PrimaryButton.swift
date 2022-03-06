@@ -9,8 +9,8 @@ import UIKit
 
 @IBDesignable public final class PrimaryButton: UIButton {
 
-    @IBInspectable var borderColor: UIColor = .black
-    @IBInspectable var titleColor: UIColor = .black
+    @IBInspectable var borderColor: UIColor = K.Color.textDark
+    @IBInspectable var titleColor: UIColor = K.Color.textDark
 
     private var borderWidth = 4.0
     private var cornerRadius = 10.0

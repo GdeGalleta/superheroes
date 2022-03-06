@@ -5,7 +5,18 @@
 //  Created by Dimitri Sopov on 5/3/22.
 //
 
-import Foundation
+import UIKit.UIColor
+
+public struct K {
+    public struct Color {
+        public static let background = UIColor(named: "background") ?? .darkGray
+        public static let textLight = UIColor(named: "text_light") ?? .white
+        public static let textDark = UIColor(named: "text_dark") ?? .black
+    }
+    public struct AccessIden {
+        public static let listLabelTitle = "listLabelTitle"
+    }
+}
 
 // MARK: - MarvelImageAspect
 

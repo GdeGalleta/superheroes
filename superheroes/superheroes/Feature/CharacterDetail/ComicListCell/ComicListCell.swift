@@ -27,7 +27,7 @@ public final class ComicListCell: UITableViewCell {
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        label.textColor = .black
+        label.textColor = K.Color.textDark
         return label
     }()
 

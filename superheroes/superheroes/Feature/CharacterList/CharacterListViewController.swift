@@ -58,7 +58,7 @@ extension CharacterListViewController {
     private func setupLayout() {
         title = "kMarvelHeroes".localized
 
-        view.backgroundColor = .black
+        view.backgroundColor = K.Color.background
 
         view.addSubview(tableView)
 

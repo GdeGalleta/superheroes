@@ -47,7 +47,7 @@ public final class CharacterDetailViewController: MarvelViewController {
     private let viewTitle: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .black
+        view.backgroundColor = K.Color.background
         return view
     }()
 
@@ -58,7 +58,7 @@ public final class CharacterDetailViewController: MarvelViewController {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 40.0)
-        label.textColor = .white
+        label.textColor = K.Color.textLight
         label.text = " "
         return label
     }()
@@ -78,16 +78,16 @@ public final class CharacterDetailViewController: MarvelViewController {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        label.textColor = .white
+        label.textColor = K.Color.textLight
         label.text = "kComics".localized
-        label.backgroundColor = .black.withAlphaComponent(0.8)
+        label.backgroundColor = K.Color.background.withAlphaComponent(0.8)
         return label
     }()
 
     private let viewFavorite: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .black
+        view.backgroundColor = K.Color.background
         return view
     }()
 
@@ -110,7 +110,7 @@ public final class CharacterDetailViewController: MarvelViewController {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        label.textColor = .white
+        label.textColor = K.Color.textLight
         label.text = "kFavorite".localized
         return label
     }()
@@ -162,7 +162,7 @@ public final class CharacterDetailViewController: MarvelViewController {
 
 extension CharacterDetailViewController {
     private func setupLayout() {
-        view.backgroundColor = .black
+        view.backgroundColor = K.Color.background
 
         view.addSubview(image)
         view.addSubview(viewFavorite)
