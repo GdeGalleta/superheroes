@@ -34,7 +34,6 @@ class SuperheroesUITests: XCTestCase {
 
     func test_characterListToDetail() {
         let app = runApp()
-        runCharacterList(app: app)
 
         // Character list
         _ = app.tables[K.AccessIden.listTableCharacterList].waitForExistence(timeout: timeout)
@@ -58,7 +57,7 @@ class SuperheroesUITests: XCTestCase {
         XCTAssertNotEqual(switchValue, switchValueNew)
         app.switches[K.AccessIden.detailFavoriteSwitch].tap()
 
-        //Close button
+        // Close button
         app.buttons[K.AccessIden.detailButtonClose].tap()
     }
 }
