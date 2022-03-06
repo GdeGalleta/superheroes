@@ -189,7 +189,7 @@ extension CharacterDetailViewController {
 
         NSLayoutConstraint.activate([
             viewButtonDismiss.topAnchor.constraint(equalTo: safeAreaLayout.topAnchor, constant: 10),
-            viewButtonDismiss.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor, constant: -10),
+            viewButtonDismiss.trailingAnchor.constraint(equalTo: safeAreaLayout.trailingAnchor, constant: -10)
         ])
 
         NSLayoutConstraint.activate([

@@ -56,7 +56,7 @@ class CharacterDetailViewModelTests: XCTestCase {
                     XCTAssertEqual(model.image.path, expectedModel.image.path)
                     XCTAssertEqual(model.image.ext, expectedModel.image.ext)
                     XCTAssertEqual(model.comics!.first!.title, expectedModel.comics!.first!.title)
-                    
+
                     expectation0.fulfill()
                 }
             }
