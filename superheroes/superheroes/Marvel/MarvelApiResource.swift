@@ -50,6 +50,6 @@ public struct CharactersQuery: Encodable {
     var events: Int? = nil /// Return only characters which appear in the specified events (accepts a comma-separated list of ids).
     var stories: Int? = nil /// Return only characters which appear the specified stories (accepts a comma-separated list of ids).
     var orderBy: String? = nil /// Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
-    var limit: Int? = nil /// Limit the result set to the specified number of resources.
-    var offset: Int? = nil /// Skip the specified number of resources in the result set.
+    var limit: Int = 20 /// Limit the result set to the specified number of resources.
+    var offset: Int = 0 /// Skip the specified number of resources in the result set.
 }

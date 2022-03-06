@@ -113,4 +113,10 @@ extension CharacterListViewController: UITableViewDelegate {
         let model = viewModel.dataSource[indexPath.row]
         coordinator?.coordinateToCharacterDetail(characterName: model.name)
     }
+
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.dataSource.count-1 {
+            viewModel.fetchMoreCharacters()
+        }
+    }
 }

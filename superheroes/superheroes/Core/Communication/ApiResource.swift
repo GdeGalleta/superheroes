@@ -26,7 +26,7 @@ public class ApiResource<T: Decodable>: ApiResourceType {
         let path = "\(baseURL)\(pathURL)"
         var components = URLComponents(string: path)
         components?.queryItems = queryParameters
-            .compactMapValues { $0 as? String }
+            .compactMapValues { String(describing: $0) }
             .map { (key, value) in return URLQueryItem(name: key, value: value) }
         if let url = components?.url?.absoluteURL {
             return URLRequest(url: url)

@@ -14,6 +14,7 @@ public protocol CharacterListViewModelType {
     var dataSourcePublished: Published<[CharacterListModel]> { get }
     var dataSourcePublisher: Published<[CharacterListModel]>.Publisher { get }
     func fetchCharacters()
+    func fetchMoreCharacters()
 }
 
 public final class CharacterListViewModel: CharacterListViewModelType {
@@ -26,12 +27,18 @@ public final class CharacterListViewModel: CharacterListViewModelType {
     public var dataSourcePublished: Published<[CharacterListModel]> { _dataSource }
     public var dataSourcePublisher: Published<[CharacterListModel]>.Publisher { $dataSource }
 
+    private var query: CharactersQuery = {
+        var query = CharactersQuery()
+        query.offset = 0
+        query.limit = 20
+        return query
+    }()
+
     init(apiProvider: ApiProviderType = ApiProvider()) {
         self.apiProvider = apiProvider
     }
 
-    public func fetchCharacters() {
-        let query = CharactersQuery()
+    public func fetchCharacters(query: CharactersQuery) {
         let resource = MarvelApiResource<MarvelCharactersDto>.characters(query: query)
         apiProvider
             .fetch(resource: resource)
@@ -65,8 +72,18 @@ public final class CharacterListViewModel: CharacterListViewModelType {
                 }
             } receiveValue: { [weak self] response in
                 guard let self = self else { return }
-                self.dataSource = response
+                self.dataSource+=response
             }
             .store(in: &cancellables)
+    }
+
+    public func fetchCharacters() {
+        query.offset = 0
+        fetchCharacters(query: query)
+    }
+
+    public func fetchMoreCharacters() {
+        query.offset+=query.limit
+        fetchCharacters(query: query)
     }
 }

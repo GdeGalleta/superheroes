@@ -8,6 +8,7 @@
 import Foundation
 
 public struct CharacterListModel: Hashable {
+    private let id = UUID()
     let identifier: Int
     let name: String
     let image: CharacterListImageModel
