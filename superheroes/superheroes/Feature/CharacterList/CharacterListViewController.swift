@@ -143,6 +143,10 @@ extension CharacterListViewController: UITableViewDelegate {
 
 extension CharacterListViewController: UISearchBarDelegate {
 
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.fetchCharacters()
+    }
+
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NSObject.cancelPreviousPerformRequests(withTarget: self,
                                                selector: #selector(self.reload(_:)),
