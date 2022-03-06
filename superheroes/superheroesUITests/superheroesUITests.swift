@@ -9,7 +9,7 @@ import XCTest
 
 class SuperheroesUITests: XCTestCase {
 
-    private let timeout = 4.0
+    private let timeout = 15.0
 
     override func setUpWithError() throws {
         continueAfterFailure = false
