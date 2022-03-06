@@ -8,13 +8,26 @@
 import UIKit.UIColor
 
 public struct K {
+    public static let testMode = "testMode"
     public struct Color {
         public static let background = UIColor(named: "background") ?? .darkGray
         public static let textLight = UIColor(named: "text_light") ?? .white
         public static let textDark = UIColor(named: "text_dark") ?? .black
     }
     public struct AccessIden {
-        public static let listLabelTitle = "listLabelTitle"
+        public static let listTableCharacterList = "listTableCharacterList"
+        public static let listTableCharacterListCell = "listTableCharacterListCell"
+        public static let listTableCharacterListCellName = "listTableCharacterListCellTitle"
+        public static let listTableCharacterListCellImage = "listTableCharacterListCellImage"
+
+        public static let detailButtonClose = "detailButtonClose"
+        public static let detailFavoriteTitle = "detailFavoriteTitle"
+        public static let detailFavoriteSwitch = "detailFavoriteSwitch"
+        public static let detailTitleHeroName = "detailTitleHeroName"
+        public static let detailTitleComics = "detailTitleComics"
+        public static let detailTableComicList = "detailTableComicList"
+        public static let detailTableComicListCell = "detailTableComicListCell"
+        public static let detailTableComicListName = "detailTableComicListTitle"
     }
 }
 

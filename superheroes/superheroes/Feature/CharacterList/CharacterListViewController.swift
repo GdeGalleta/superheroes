@@ -29,6 +29,7 @@ public final class CharacterListViewController: MarvelViewController {
         table.backgroundColor = .clear
         table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         table.register(CharacterListCell.self, forCellReuseIdentifier: CharacterListCell.identifier)
+        table.accessibilityIdentifier = K.AccessIden.listTableCharacterList
         return table
     }()
 
@@ -95,6 +96,7 @@ extension CharacterListViewController {
             cellProvider: { tableView, indexPath, model -> UITableViewCell? in
                 let cell = tableView.dequeueReusableCell(withIdentifier: CharacterListCell.identifier, for: indexPath) as? CharacterListCell
                 cell?.setup(with: model)
+                cell?.accessibilityIdentifier = K.AccessIden.listTableCharacterListCell
                 return cell
             })
     }
@@ -119,6 +121,7 @@ extension CharacterListViewController: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard !UIApplication.isRunningTest else { return }
         if indexPath.row == viewModel.dataSource.count-1 {
             viewModel.fetchMoreCharacters()
         }

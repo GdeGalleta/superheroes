@@ -31,6 +31,7 @@ public final class CharacterDetailViewController: MarvelViewController {
         table.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 20, right: 0)
         table.showsVerticalScrollIndicator = false
         table.register(ComicListCell.self, forCellReuseIdentifier: ComicListCell.identifier)
+        table.accessibilityIdentifier = K.AccessIden.detailTableComicList
         return table
     }()
 
@@ -48,6 +49,7 @@ public final class CharacterDetailViewController: MarvelViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("kClose".localized, for: .normal)
         button.addTarget(self, action: #selector(buttonDismissTapped), for: .touchUpInside)
+        button.accessibilityIdentifier = K.AccessIden.detailButtonClose
         return button
     }()
 
@@ -67,6 +69,7 @@ public final class CharacterDetailViewController: MarvelViewController {
         label.font = UIFont.boldSystemFont(ofSize: 40.0)
         label.textColor = K.Color.textLight
         label.text = " "
+        label.accessibilityIdentifier = K.AccessIden.detailTitleHeroName
         return label
     }()
 
@@ -88,6 +91,7 @@ public final class CharacterDetailViewController: MarvelViewController {
         label.textColor = K.Color.textLight
         label.text = "kComics".localized
         label.backgroundColor = K.Color.background.withAlphaComponent(0.8)
+        label.accessibilityIdentifier = K.AccessIden.detailTitleComics
         return label
     }()
 
@@ -119,6 +123,7 @@ public final class CharacterDetailViewController: MarvelViewController {
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.textColor = K.Color.textLight
         label.text = "kFavorite".localized
+        label.accessibilityIdentifier = K.AccessIden.detailFavoriteTitle
         return label
     }()
 
@@ -127,6 +132,7 @@ public final class CharacterDetailViewController: MarvelViewController {
         switchFavorite.translatesAutoresizingMaskIntoConstraints = false
         switchFavorite.addTarget(self, action: #selector(switchFavoriteDidChange(_:)), for: .valueChanged)
         switchFavorite.isOn = MarvelFavoriteHelper.isFavorite(characterName: self.characterName)
+        switchFavorite.accessibilityIdentifier = K.AccessIden.detailFavoriteSwitch
         return switchFavorite
     }()
 
@@ -277,6 +283,7 @@ extension CharacterDetailViewController {
             cellProvider: { tableView, indexPath, model -> UITableViewCell? in
                 let cell = tableView.dequeueReusableCell(withIdentifier: ComicListCell.identifier, for: indexPath) as? ComicListCell
                 cell?.setup(with: model)
+                cell?.accessibilityIdentifier = K.AccessIden.detailTableComicListCell
                 return cell
             })
     }

@@ -9,34 +9,56 @@ import XCTest
 
 class SuperheroesUITests: XCTestCase {
 
+    private let timeout = 2.0
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    private func runApp() -> XCUIApplication {
         let app = XCUIApplication()
+        app.launchArguments = ["testMode"]
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        return app
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func test_characterList() {
+        let app = runApp()
+        _ = app.tables[K.AccessIden.listTableCharacterList].waitForExistence(timeout: timeout)
+        XCTAssert(app.tables[K.AccessIden.listTableCharacterList].cells.count > 0)
+    }
+
+    func test_characterListToDetail() {
+        let app = runApp()
+        runCharacterList(app: app)
+
+        // Character list
+        _ = app.tables[K.AccessIden.listTableCharacterList].waitForExistence(timeout: timeout)
+        XCTAssert(app.tables[K.AccessIden.listTableCharacterList].cells.count > 0)
+
+        // Character list item tap
+        _ = app.tables[K.AccessIden.listTableCharacterList].waitForExistence(timeout: timeout)
+        let tappedHeroName = app.staticTexts[K.AccessIden.listTableCharacterListCellName].firstMatch.label
+        app.tables[K.AccessIden.listTableCharacterList].cells.firstMatch.tap()
+
+        // Detail check
+        _ = app.tables[K.AccessIden.detailTableComicList].waitForExistence(timeout: timeout)
+        let detailHeroName = app.staticTexts[K.AccessIden.detailTitleHeroName].label
+        XCTAssertEqual(tappedHeroName, detailHeroName)
+        XCTAssert(app.tables[K.AccessIden.detailTableComicList].cells.count > 0)
+
+        // Switch toggle
+        let switchValue = app.switches[K.AccessIden.detailFavoriteSwitch].value as? String
+        app.switches[K.AccessIden.detailFavoriteSwitch].tap()
+        let switchValueNew = app.switches[K.AccessIden.detailFavoriteSwitch].value as? String
+        XCTAssertNotEqual(switchValue, switchValueNew)
+        app.switches[K.AccessIden.detailFavoriteSwitch].tap()
+
+        //Close button
+        app.buttons[K.AccessIden.detailButtonClose].tap()
     }
 }

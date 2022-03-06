@@ -28,6 +28,7 @@ public final class CharacterListCell: UITableViewCell {
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 25.0)
         label.textColor = K.Color.textDark
+        label.accessibilityIdentifier = K.AccessIden.listTableCharacterListCellName
         return label
     }()
 
@@ -36,6 +37,7 @@ public final class CharacterListCell: UITableViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.image = UIImage(named: "character_placeholder")
+        image.accessibilityIdentifier = K.AccessIden.listTableCharacterListCellImage
         return image
     }()
 
