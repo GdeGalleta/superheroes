@@ -33,6 +33,16 @@ public final class CharacterListViewController: MarvelViewController {
         return table
     }()
 
+    private lazy var searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchBar.placeholder = "kSearchByName".localized()
+        controller.searchBar.barStyle = .black
+        controller.searchBar.accessibilityTraits = UIAccessibilityTraits.searchField
+        controller.searchBar.delegate = self
+        controller.obscuresBackgroundDuringPresentation = false
+        return controller
+    }()
+
     // MARK: - Initializer
     init(viewModel: CharacterListViewModelType = CharacterListViewModel(),
          coordinator: CharacterListCoordinatorType? = nil) {
@@ -60,6 +70,9 @@ extension CharacterListViewController {
         title = "kMarvelHeroes".localized
 
         view.backgroundColor = K.Color.background
+
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
 
         view.addSubview(tableView)
 
@@ -125,5 +138,19 @@ extension CharacterListViewController: UITableViewDelegate {
         if indexPath.row == viewModel.dataSource.count-1 {
             viewModel.fetchMoreCharacters()
         }
+    }
+}
+
+extension CharacterListViewController: UISearchBarDelegate {
+
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self,
+                                               selector: #selector(self.reload(_:)),
+                                               object: searchBar)
+        perform(#selector(self.reload(_:)), with: searchBar, afterDelay: 0.75)
+    }
+
+    @objc func reload(_ searchBar: UISearchBar) {
+        viewModel.fetchCharacters(nameStartsWith: searchBar.text)
     }
 }

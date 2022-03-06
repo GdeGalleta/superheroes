@@ -13,6 +13,7 @@ public protocol CharacterListViewModelType {
     var dataSource: [CharacterListModel] { get }
     var dataSourcePublished: Published<[CharacterListModel]> { get }
     var dataSourcePublisher: Published<[CharacterListModel]>.Publisher { get }
+    func fetchCharacters(nameStartsWith: String?)
     func fetchCharacters()
     func fetchMoreCharacters()
 }
@@ -76,8 +77,23 @@ public final class CharacterListViewModel: CharacterListViewModelType {
             .store(in: &cancellables)
     }
 
-    public func fetchCharacters() {
+    public func fetchCharacters(nameStartsWith: String?) {
+        dataSource = []
         query.offset = 0
+
+        if let nameStartsWithValue = nameStartsWith, !nameStartsWithValue.isEmpty {
+            query.nameStartsWith = nameStartsWithValue
+        } else {
+            query.nameStartsWith = nil
+        }
+
+        fetchCharacters(query: query)
+    }
+
+    public func fetchCharacters() {
+        dataSource = []
+        query.offset = 0
+        query.nameStartsWith = nil
         fetchCharacters(query: query)
     }
 
