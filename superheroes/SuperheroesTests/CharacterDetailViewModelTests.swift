@@ -49,7 +49,13 @@ class CharacterDetailViewModelTests: XCTestCase {
         viewModel!.dataSourcePublisher
             .receive(on: RunLoop.main)
             .sink { response in
-                if response == expectedModel {
+                if let model = response {
+                    XCTAssertEqual(model.identifier, expectedModel.identifier)
+                    XCTAssertEqual(model.name, expectedModel.name)
+                    XCTAssertEqual(model.image.path, expectedModel.image.path)
+                    XCTAssertEqual(model.image.ext, expectedModel.image.ext)
+                    XCTAssertEqual(model.comics, expectedModel.comics)
+                    
                     expectation0.fulfill()
                 }
             }

@@ -39,7 +39,7 @@ public final class CharacterDetailViewModel: CharacterDetailViewModelType {
             .compactMap({ (response: MarvelCharactersDto) -> [CharacterDetailModel] in
                 var converted: [CharacterDetailModel] = []
                 if let results = response.data?.results {
-                    converted+=results.compactMap({
+                    converted+=results.prefix(1).compactMap({
                         if let identifier = $0.identifier,
                            let name = $0.name,
                            let url = $0.thumbnail?.path,

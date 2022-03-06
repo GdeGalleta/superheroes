@@ -50,7 +50,12 @@ class CharacterListViewModelTests: XCTestCase {
                 let foundModel = response.filter({
                     return $0.identifier == expectedModel.identifier
                 }).first
-                if foundModel == expectedModel {
+                if let model = foundModel {
+                    XCTAssertEqual(model.identifier, expectedModel.identifier)
+                    XCTAssertEqual(model.name, expectedModel.name)
+                    XCTAssertEqual(model.image.path, expectedModel.image.path)
+                    XCTAssertEqual(model.image.ext, expectedModel.image.ext)
+
                     expectation0.fulfill()
                 }
             }
