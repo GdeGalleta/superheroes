@@ -15,6 +15,7 @@ With this application you can see a list of Marvel heroes, searching them by nam
 
 ## How to install
 * Clone or download the project to your machine
+* Modify the ApiKeys.swift file with your keys from the [MARVEL DEVELOPER ACCOUNT](https://developer.marvel.com/account) developer portal.
 * Open XCode and build the project using: ```Cmd```+ ```Shift``` + ```B```.
 * Run the Tests using: ```Cmd``` + ```U```.
 * Run the App using: ```Cmd``` + ```R```.
