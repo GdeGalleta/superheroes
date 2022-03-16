@@ -4,7 +4,7 @@ This is an iOS App created using Swift and the [Marvel API](https://developer.ma
 With this application you can see a list of Marvel heroes, searching them by name and see the list of comics where they have appeared. You can also mark your favorite heroes.
 
 <p align="left">
-  <img src="Images/superheroes_demo.gif" width="250" title="hover text">
+  <img src="Images/superheroes_demo.gif" width="250">
 </p>
 
 ## Requirements
@@ -15,6 +15,7 @@ With this application you can see a list of Marvel heroes, searching them by nam
 
 ## How to install
 * Clone or download the project to your machine
+* Modify the ApiKeys.swift file with your keys from the [MARVEL DEVELOPER ACCOUNT](https://developer.marvel.com/account) developer portal.
 * Open XCode and build the project using: ```Cmd```+ ```Shift``` + ```B```.
 * Run the Tests using: ```Cmd``` + ```U```.
 * Run the App using: ```Cmd``` + ```R```.
