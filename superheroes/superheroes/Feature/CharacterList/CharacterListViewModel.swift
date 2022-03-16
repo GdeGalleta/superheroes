@@ -14,7 +14,7 @@ public protocol CharacterListViewModelType {
     var dataSourcePublished: Published<[CharacterListModel]> { get }
     var dataSourcePublisher: Published<[CharacterListModel]>.Publisher { get }
     func fetchCharacters(nameStartsWith: String?, orderByNameDesc: Bool)
-    func fetchCharacters()
+    func fetchCharacters(orderByNameDesc: Bool)
     func fetchMoreCharacters()
 }
 
@@ -92,11 +92,11 @@ public final class CharacterListViewModel: CharacterListViewModelType {
         fetchCharacters(query: query)
     }
 
-    public func fetchCharacters() {
+    public func fetchCharacters(orderByNameDesc: Bool) {
         dataSource = []
         query.offset = 0
         query.nameStartsWith = nil
-        query.orderBy = nil
+        query.orderBy = orderByNameDesc ? "-name" : "name"
         fetchCharacters(query: query)
     }
 

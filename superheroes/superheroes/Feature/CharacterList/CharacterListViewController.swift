@@ -65,6 +65,14 @@ public final class CharacterListViewController: MarvelViewController {
         setupBinding()
         fetchData()
     }
+
+    // MARK: - Other
+    private func isOrderByNameDescSelected() -> Bool {
+        let selectedScopeIndex = searchController.searchBar.selectedScopeButtonIndex
+        let selectedScopeTitle = searchController.searchBar.scopeButtonTitles?[selectedScopeIndex]
+        let orderByNameDesc = "kNameDesc".localized == selectedScopeTitle
+        return orderByNameDesc
+    }
 }
 
 extension CharacterListViewController {
@@ -99,7 +107,7 @@ extension CharacterListViewController {
     }
 
     private func fetchData() {
-        viewModel.fetchCharacters()
+        viewModel.fetchCharacters(orderByNameDesc: isOrderByNameDescSelected())
     }
 }
 
@@ -148,7 +156,7 @@ extension CharacterListViewController: UITableViewDelegate {
 extension CharacterListViewController: UISearchBarDelegate {
 
     public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.fetchCharacters()
+        viewModel.fetchCharacters(orderByNameDesc: isOrderByNameDescSelected())
     }
 
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -159,18 +167,12 @@ extension CharacterListViewController: UISearchBarDelegate {
     }
 
     @objc func reload(_ searchBar: UISearchBar) {
-        let selectedScopeTitle = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex]
-        let orderByNameDesc = "kNameDesc".localized == selectedScopeTitle
-
         viewModel.fetchCharacters(nameStartsWith: searchBar.text,
-                                  orderByNameDesc: orderByNameDesc)
+                                  orderByNameDesc: isOrderByNameDescSelected())
     }
 
     public func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        let selectedScopeTitle = searchBar.scopeButtonTitles?[selectedScope]
-        let orderByNameDesc = "kNameDesc".localized == selectedScopeTitle
-
         viewModel.fetchCharacters(nameStartsWith: searchBar.text,
-                                  orderByNameDesc: orderByNameDesc)
+                                  orderByNameDesc: isOrderByNameDescSelected())
     }
 }
