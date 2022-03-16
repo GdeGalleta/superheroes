@@ -7,24 +7,31 @@
 
 import Foundation
 
+public enum ApiHttpMethod: String {
+    case GET
+    case POST
+}
+
 public protocol ApiResourceType: AnyObject {
     associatedtype Model: Decodable
+
+    var httpMethod: ApiHttpMethod { get }
+    var baseURL: String { get }
+    var pathURL: String { get }
+    var queryParameters: [String: Any] { get }
+    var headers: [String: String] { get set }
+
     var request: URLRequest? { get }
 }
 
 public class ApiResource<T: Decodable>: ApiResourceType {
     public typealias Model = T
 
-    public enum HttpMethod: String {
-        case GET
-        case POST
-    }
-
-    let httpMethod: HttpMethod
-    let baseURL: String
-    let pathURL: String
-    let queryParameters: [String: Any]
-    let headers: [String: String]
+    public var httpMethod: ApiHttpMethod
+    public var baseURL: String
+    public var pathURL: String
+    public var queryParameters: [String: Any]
+    public var headers: [String: String]
 
     public var request: URLRequest? {
         switch httpMethod {
@@ -36,6 +43,10 @@ public class ApiResource<T: Decodable>: ApiResourceType {
     }
 
     private var requestGET: URLRequest? {
+        guard !baseURL.isEmpty else {
+            return nil
+        }
+
         let path = "\(baseURL)\(pathURL)"
 
         var components = URLComponents(string: path)
@@ -69,7 +80,7 @@ public class ApiResource<T: Decodable>: ApiResourceType {
         return request
     }
 
-    public init(httpMethod: HttpMethod = .GET,
+    public init(httpMethod: ApiHttpMethod = .GET,
                 baseURL: String,
                 pathURL: String,
                 queryParameters: [String: Any] = [:],

@@ -31,8 +31,8 @@ class MarvelAuthHelper {
 
     static func generateDefaultCredentials() -> MarvelAuthEntity {
         let defaultCredentials = MarvelAuthCredentials(
-            publicKey: "aaeb0e87f67e8c94777a8356e9e57ef3",
-            privateKey: "fe5ec6dfc8d444d216e4c55f835f282945b55148")
+            publicKey: ApiKeys.apikey,
+            privateKey: ApiKeys.secret)
         return generateCredentials(credentials: defaultCredentials)
     }
 }

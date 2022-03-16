@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import UIKit.UIImageView
+@testable import Superheroes
 
 class MarvelImageViewTests: XCTestCase {
 

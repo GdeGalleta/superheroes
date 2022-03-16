@@ -7,6 +7,7 @@
 
 import XCTest
 import Combine
+@testable import Superheroes
 
 class CharacterDetailViewModelTests: XCTestCase {
 

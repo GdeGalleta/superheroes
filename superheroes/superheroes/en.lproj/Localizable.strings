@@ -11,3 +11,5 @@
 "kFavorite"="Favorite";
 "kMarvelHeroes"="Marvel Heroes";
 "kSearchByName"="Search by name";
+"kNameAsc"="Order A-Z";
+"kNameDesc"="Order Z-A";

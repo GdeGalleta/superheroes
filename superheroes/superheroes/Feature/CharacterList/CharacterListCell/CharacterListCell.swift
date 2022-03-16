@@ -60,6 +60,7 @@ extension CharacterListCell {
 
     public func setup(with model: CharacterListModel) {
         labelName.text = model.name
+        imageThumbnail.image = UIImage(named: "character_placeholder")
         imageThumbnail.loadMarvel(path: model.image.path,
                                   ext: model.image.ext,
                                   aspect: .standard,
@@ -80,6 +81,9 @@ extension CharacterListCell {
         viewContainer.layer.borderColor = rColor.cgColor
         viewContainer.layer.cornerRadius = 10
         viewContainer.layer.masksToBounds = true
+
+        imageThumbnail.layer.cornerRadius = 10
+        imageThumbnail.layer.masksToBounds = true
 
         NSLayoutConstraint.activate([
             viewContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2.5),

@@ -41,6 +41,7 @@ public final class CharacterListViewController: MarvelViewController {
         controller.searchBar.accessibilityTraits = UIAccessibilityTraits.searchField
         controller.searchBar.delegate = self
         controller.obscuresBackgroundDuringPresentation = false
+        controller.searchBar.scopeButtonTitles = ["kNameAsc".localized, "kNameDesc".localized]
         return controller
     }()
 
@@ -158,6 +159,18 @@ extension CharacterListViewController: UISearchBarDelegate {
     }
 
     @objc func reload(_ searchBar: UISearchBar) {
-        viewModel.fetchCharacters(nameStartsWith: searchBar.text)
+        let selectedScopeTitle = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex]
+        let orderByNameDesc = "kNameDesc".localized == selectedScopeTitle
+
+        viewModel.fetchCharacters(nameStartsWith: searchBar.text,
+                                  orderByNameDesc: orderByNameDesc)
+    }
+
+    public func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        let selectedScopeTitle = searchBar.scopeButtonTitles?[selectedScope]
+        let orderByNameDesc = "kNameDesc".localized == selectedScopeTitle
+
+        viewModel.fetchCharacters(nameStartsWith: searchBar.text,
+                                  orderByNameDesc: orderByNameDesc)
     }
 }

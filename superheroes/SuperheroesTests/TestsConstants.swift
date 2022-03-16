@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import Superheroes
 
 public struct TestsConstants {
     private class Class {}

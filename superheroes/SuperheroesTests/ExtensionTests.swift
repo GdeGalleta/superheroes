@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import UIKit.UIColor
+@testable import Superheroes
 
 class ExtensionString: XCTestCase {
 
