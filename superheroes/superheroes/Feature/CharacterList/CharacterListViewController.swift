@@ -30,6 +30,7 @@ public final class CharacterListViewController: MarvelViewController {
         table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         table.register(CharacterListCell.self, forCellReuseIdentifier: CharacterListCell.identifier)
         table.accessibilityIdentifier = K.AccessIden.listTableCharacterList
+        table.keyboardDismissMode = .onDrag
         return table
     }()
 
@@ -129,6 +130,8 @@ extension CharacterListViewController: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchController.searchBar.endEditing(true)
+
         let model = viewModel.dataSource[indexPath.row]
         coordinator?.coordinateToCharacterDetail(characterName: model.name)
     }
