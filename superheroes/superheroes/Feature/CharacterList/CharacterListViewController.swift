@@ -27,7 +27,7 @@ public final class CharacterListViewController: MarvelViewController {
         table.delegate = self
         table.separatorStyle = .none
         table.backgroundColor = .clear
-        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 200, right: 0)
         table.register(CharacterListCell.self, forCellReuseIdentifier: CharacterListCell.identifier)
         table.accessibilityIdentifier = K.AccessIden.listTableCharacterList
         table.keyboardDismissMode = .onDrag
