@@ -10,6 +10,10 @@
 		EAA334EE27E1FFD600F8CFAE /* API-Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA334ED27E1FFD600F8CFAE /* API-Keys.swift */; };
 		EAA334EF27E20A2C00F8CFAE /* ApiProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9643127D36B530067FD7A /* ApiProviderTests.swift */; };
 		EAA334F027E20A3400F8CFAE /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE9642F27D36B2F0067FD7A /* URLProtocolMock.swift */; };
+		EAA334F327E23E7E00F8CFAE /* DecoderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA334F227E23E7E00F8CFAE /* DecoderFactory.swift */; };
+		EAA334F527E23ECA00F8CFAE /* CharacterListModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA334F427E23ECA00F8CFAE /* CharacterListModelFactory.swift */; };
+		EAA334F727E23F3500F8CFAE /* CharacterDetailModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA334F627E23F3500F8CFAE /* CharacterDetailModelFactory.swift */; };
+		EAA334F927E23FCD00F8CFAE /* MarvelCharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA334F827E23FCD00F8CFAE /* MarvelCharacterService.swift */; };
 		EAE963F527D363AB0067FD7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE963F427D363AB0067FD7A /* AppDelegate.swift */; };
 		EAE963F727D363AB0067FD7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE963F627D363AB0067FD7A /* SceneDelegate.swift */; };
 		EAE963FE27D363AD0067FD7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE963FD27D363AD0067FD7A /* Assets.xcassets */; };
@@ -79,6 +83,10 @@
 
 /* Begin PBXFileReference section */
 		EAA334ED27E1FFD600F8CFAE /* API-Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API-Keys.swift"; sourceTree = "<group>"; };
+		EAA334F227E23E7E00F8CFAE /* DecoderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderFactory.swift; sourceTree = "<group>"; };
+		EAA334F427E23ECA00F8CFAE /* CharacterListModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListModelFactory.swift; sourceTree = "<group>"; };
+		EAA334F627E23F3500F8CFAE /* CharacterDetailModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailModelFactory.swift; sourceTree = "<group>"; };
+		EAA334F827E23FCD00F8CFAE /* MarvelCharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacterService.swift; sourceTree = "<group>"; };
 		EAE963F127D363AB0067FD7A /* Superheroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Superheroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE963F427D363AB0067FD7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE963F627D363AB0067FD7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +166,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EAA334F127E23E6700F8CFAE /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				EAA334F227E23E7E00F8CFAE /* DecoderFactory.swift */,
+			);
+			path = Decoder;
+			sourceTree = "<group>";
+		};
+		EAA334FA27E2428900F8CFAE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EAA334F827E23FCD00F8CFAE /* MarvelCharacterService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		EAE963E827D363AB0067FD7A = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +247,7 @@
 		EAE9642427D364390067FD7A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EAA334F127E23E6700F8CFAE /* Decoder */,
 				EAE9648027D3A1FB0067FD7A /* Component */,
 				EAE9645B27D389E00067FD7A /* Coordinator */,
 				EAE9643627D36EBC0067FD7A /* Communication */,
@@ -262,6 +287,7 @@
 		EAE9643727D36ED50067FD7A /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				EAA334FA27E2428900F8CFAE /* Service */,
 				EAE9644A27D375170067FD7A /* Model */,
 				EAE9643827D36EF50067FD7A /* MarvelAuthHelper.swift */,
 				EAE9644127D36FEE0067FD7A /* MarvelApiResource.swift */,
@@ -331,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE9647627D3970C0067FD7A /* CharacterListModel.swift */,
+				EAA334F427E23ECA00F8CFAE /* CharacterListModelFactory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE964AD27D3DFDB0067FD7A /* CharacterDetailModel.swift */,
+				EAA334F627E23F3500F8CFAE /* CharacterDetailModelFactory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -524,6 +552,7 @@
 				EAE964AE27D3DFDB0067FD7A /* CharacterDetailModel.swift in Sources */,
 				EAE9647227D38CF90067FD7A /* CharacterDetailViewModel.swift in Sources */,
 				EAE9645427D37B950067FD7A /* CharacterListViewModel.swift in Sources */,
+				EAA334F527E23ECA00F8CFAE /* CharacterListModelFactory.swift in Sources */,
 				EAE9644827D3713D0067FD7A /* Dictionary+Merge.swift in Sources */,
 				EAE9644527D370790067FD7A /* Encodable+Json.swift in Sources */,
 				EAE9642627D365730067FD7A /* ApiProvider.swift in Sources */,
@@ -534,6 +563,7 @@
 				EAE964BB27D4E9C40067FD7A /* MarvelViewController.swift in Sources */,
 				EAE9643D27D36F280067FD7A /* String+MD5.swift in Sources */,
 				EAE9642927D365950067FD7A /* ApiResource.swift in Sources */,
+				EAA334F727E23F3500F8CFAE /* CharacterDetailModelFactory.swift in Sources */,
 				EAE9646627D38A620067FD7A /* CharacterListViewController.swift in Sources */,
 				EAE964B827D4E44F0067FD7A /* MarvelFavoriteHelper.swift in Sources */,
 				EAE964C927D528330067FD7A /* UIApplication+Test.swift in Sources */,
@@ -543,10 +573,12 @@
 				EAE9646C27D38ADB0067FD7A /* CharacterDetailCoordinator.swift in Sources */,
 				EAE963F727D363AB0067FD7A /* SceneDelegate.swift in Sources */,
 				EAE964C327D51A100067FD7A /* MarvelImageView.swift in Sources */,
+				EAA334F327E23E7E00F8CFAE /* DecoderFactory.swift in Sources */,
 				EAE9646927D38A8D0067FD7A /* CharacterListCoordinator.swift in Sources */,
 				EAE9644227D36FEE0067FD7A /* MarvelApiResource.swift in Sources */,
 				EAE9646F27D38B1E0067FD7A /* CharacterDetailViewController.swift in Sources */,
 				EAE9647727D3970C0067FD7A /* CharacterListModel.swift in Sources */,
+				EAA334F927E23FCD00F8CFAE /* MarvelCharacterService.swift in Sources */,
 				EAE9646327D38A2C0067FD7A /* FlowCoordinator.swift in Sources */,
 				EAE964B527D4D7600067FD7A /* UIColor+Random.swift in Sources */,
 				EAA334EE27E1FFD600F8CFAE /* API-Keys.swift in Sources */,

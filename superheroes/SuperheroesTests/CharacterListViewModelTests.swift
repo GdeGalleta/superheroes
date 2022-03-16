@@ -13,18 +13,21 @@ class CharacterListViewModelTests: XCTestCase {
 
     private var cancellables: Set<AnyCancellable>!
     private var apiProvider: ApiProviderType?
+    private var marvelCharacterService: MarvelCharacterServiceType?
     private var viewModel: CharacterListViewModelType?
 
     override func setUpWithError() throws {
         cancellables = []
         apiProvider = ApiProvider(session: TestsConstants.session)
+        marvelCharacterService = MarvelCharacterService(apiProvider: apiProvider!)
         URLProtocol.registerClass(URLProtocolMock.self)
 
-        viewModel = CharacterListViewModel(apiProvider: apiProvider!)
+        viewModel = CharacterListViewModel(marvelCharacterService: marvelCharacterService!)
     }
 
     override func tearDownWithError() throws {
         apiProvider = nil
+        marvelCharacterService = nil
         viewModel = nil
     }
 
@@ -62,7 +65,7 @@ class CharacterListViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-        viewModel!.fetchCharacters()
+        viewModel!.fetchCharacters(orderByNameDesc: false)
 
         wait(for: [expectation0], timeout: 5)
     }

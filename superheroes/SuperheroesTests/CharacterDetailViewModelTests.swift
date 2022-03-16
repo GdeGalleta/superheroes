@@ -13,18 +13,21 @@ class CharacterDetailViewModelTests: XCTestCase {
 
     private var cancellables: Set<AnyCancellable>!
     private var apiProvider: ApiProviderType?
+    private var marvelCharacterService: MarvelCharacterServiceType?
     private var viewModel: CharacterDetailViewModelType?
 
     override func setUpWithError() throws {
         cancellables = []
         apiProvider = ApiProvider(session: TestsConstants.session)
+        marvelCharacterService = MarvelCharacterService(apiProvider: apiProvider!)
         URLProtocol.registerClass(URLProtocolMock.self)
 
-        viewModel = CharacterDetailViewModel(apiProvider: apiProvider!)
+        viewModel = CharacterDetailViewModel(marvelCharacterService: marvelCharacterService!)
     }
 
     override func tearDownWithError() throws {
         apiProvider = nil
+        marvelCharacterService = nil
         viewModel = nil
     }
 
