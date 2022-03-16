@@ -1,5 +1,5 @@
 //
-//  MarvelFavoriteHelper.swift
+//  MarvelFavoriteRespository.swift
 //  Superheroes
 //
 //  Created by Dimitri Sopov on 6/3/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct MarvelFavoriteHelper {
+public struct MarvelFavoriteRespository {
 
     private static let userDefaults = UserDefaults.standard
     private static let keyPrefix = "kFavoriteKey_"

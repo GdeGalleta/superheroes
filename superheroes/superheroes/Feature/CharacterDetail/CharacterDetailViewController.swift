@@ -131,7 +131,7 @@ public final class CharacterDetailViewController: MarvelViewController {
         let switchFavorite = UISwitch()
         switchFavorite.translatesAutoresizingMaskIntoConstraints = false
         switchFavorite.addTarget(self, action: #selector(switchFavoriteDidChange(_:)), for: .valueChanged)
-        switchFavorite.isOn = MarvelFavoriteHelper.isFavorite(characterName: self.characterName)
+        switchFavorite.isOn = MarvelFavoriteRespository.isFavorite(characterName: self.characterName)
         switchFavorite.accessibilityIdentifier = K.AccessIden.detailFavoriteSwitch
         return switchFavorite
     }()
@@ -166,9 +166,9 @@ public final class CharacterDetailViewController: MarvelViewController {
 
     @objc private func switchFavoriteDidChange(_ sender: UISwitch) {
         if sender.isOn {
-            MarvelFavoriteHelper.storeFavorite(characterName: characterName)
+            MarvelFavoriteRespository.storeFavorite(characterName: characterName)
         } else {
-            MarvelFavoriteHelper.removeFavorite(characterName: characterName)
+            MarvelFavoriteRespository.removeFavorite(characterName: characterName)
         }
     }
 }

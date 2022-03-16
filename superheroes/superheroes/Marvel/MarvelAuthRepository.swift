@@ -1,5 +1,5 @@
 //
-//  MarvelAuthHelper.swift
+//  MarvelAuthRepository.swift
 //  Superheroes
 //
 //  Created by Dimitri Sopov on 5/3/22.
@@ -18,7 +18,7 @@ struct MarvelAuthEntity: Encodable {
     var apikey: String
 }
 
-class MarvelAuthHelper {
+class MarvelAuthRepository {
     static func generateCredentials(credentials: MarvelAuthCredentials) -> MarvelAuthEntity {
         generateCredentials(publicKey: credentials.publicKey, privateKey: credentials.privateKey)
     }

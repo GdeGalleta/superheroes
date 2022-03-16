@@ -18,7 +18,7 @@ public final class MarvelApiResource<T: Decodable>: ApiResource<T> {
     private convenience init(endpoint: MarvelEndpoint,
                              queryParameters: [String: Any] = [:]) {
 
-        let authParameters = MarvelAuthHelper.generateDefaultCredentials().dictionary
+        let authParameters = MarvelAuthRepository.generateDefaultCredentials().dictionary
 
         var marvelQueryParameters = queryParameters
         marvelQueryParameters+=authParameters
