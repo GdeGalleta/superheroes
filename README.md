@@ -26,7 +26,7 @@ With this application you can see a list of Marvel heroes, searching them by nam
 * UI developed 100% in code including the components.
 * Communication between View and ViewModel is done through the use of Combine.
 * View flow navigation is done by the use of the Coordinator pattern.
-* The ViewModel performs the conversion of DTO to application Model and gets data from the API by using: 
+* The ViewModel gets data from the API by using: 
   * ApiResource: model which offers URL formed by the different components.
   * ApiProvider: application connector to an internet resource.
   * ApiError: Error wrapper for the application.
