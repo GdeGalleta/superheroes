@@ -12,6 +12,7 @@ With this application you can see a list of Marvel heroes, searching them by nam
 * Xcode >= 13
 * iOS >= 15.0
 * Swift 5
+* UIKit
 
 ## How to install
 * Clone or download the project to your machine
@@ -23,7 +24,7 @@ With this application you can see a list of Marvel heroes, searching them by nam
 ## Architecture
 
 * MvvM Design Pattern.
-* UI developed 100% in code including the components.
+* UIKit UI developed 100% in code including the components.
 * Communication between View and ViewModel is done through the use of Combine.
 * View flow navigation is done by the use of the Coordinator pattern.
 * The ViewModel gets data from the API by using: 
